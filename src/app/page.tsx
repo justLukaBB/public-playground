@@ -6,14 +6,19 @@ import {
   Building2,
   CheckCircle2,
   ClipboardList,
+  FileSignature,
   Handshake,
   Home,
   KeyRound,
+  LineChart,
   Mail,
   MapPin,
+  MessageSquareQuote,
   Phone,
+  PlayCircle,
   ShieldCheck,
   Sparkles,
+  Star,
   Users,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -88,10 +93,64 @@ const values = [
 ];
 
 const stats = [
+  { value: "15+", label: "Jahre Erfahrung in der Immobilienverwaltung" },
   { value: "§26a", label: "Zertifizierter Verwalter nach WEG" },
   { value: "ab 2", label: "Wohneinheiten verwalten wir" },
-  { value: "12+", label: "Monate Mindestvertragslaufzeit" },
   { value: "100%", label: "Persönlicher Ansprechpartner" },
+];
+
+const process = [
+  {
+    icon: MessageSquareQuote,
+    title: "Erstgespräch",
+    description:
+      "Kostenlose & unverbindliche Analyse Ihrer Immobilie und Ihrer Ziele.",
+  },
+  {
+    icon: FileSignature,
+    title: "Angebot",
+    description:
+      "Maßgeschneidertes Angebot mit klaren Leistungen und Kosten.",
+  },
+  {
+    icon: KeyRound,
+    title: "Übernahme",
+    description:
+      "Strukturierte & reibungslose Übernahme aller Verwaltungsaufgaben.",
+  },
+  {
+    icon: PlayCircle,
+    title: "Aktive Verwaltung",
+    description:
+      "Professionelle, laufende Betreuung mit persönlichem Ansprechpartner.",
+  },
+  {
+    icon: LineChart,
+    title: "Reporting",
+    description:
+      "Transparente Berichte, Abrechnungen und jährliche Optimierung.",
+  },
+];
+
+const testimonials = [
+  {
+    quote:
+      "Seit Jahren verwaltet Hürland unsere WEG – professionell, zuverlässig und immer transparent.",
+    name: "Klaus M.",
+    role: "WEG-Eigentümer, Dorsten",
+  },
+  {
+    quote:
+      "Seit Hürland die Verwaltung übernommen hat, muss ich mich um gar nichts mehr kümmern.",
+    name: "Sabine K.",
+    role: "Vermieterin, Dorsten-Marl",
+  },
+  {
+    quote:
+      "Frau Hürland ist immer persönlich erreichbar. Kein Callcenter, kein Warten.",
+    name: "Thomas W.",
+    role: "Eigentümer, Gladbeck",
+  },
 ];
 
 export default function HomePage() {
@@ -112,10 +171,10 @@ export default function HomePage() {
           <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/60" />
         </div>
 
-        <div className="mx-auto grid max-w-6xl gap-12 px-4 py-20 sm:px-6 sm:py-28 lg:grid-cols-12 lg:gap-8 lg:px-8 lg:py-36">
-          <div className="space-y-8 lg:col-span-7">
+        <div className="mx-auto grid max-w-6xl gap-8 px-4 py-12 sm:gap-12 sm:px-6 sm:py-20 lg:grid-cols-12 lg:gap-8 lg:px-8 lg:py-32">
+          <div className="space-y-6 sm:space-y-8 lg:col-span-7">
             <Eyebrow>Hausverwaltung Dorsten</Eyebrow>
-            <h1 className="text-4xl font-semibold leading-[1.05] tracking-tight text-foreground sm:text-5xl lg:text-6xl">
+            <h1 className="text-3xl font-semibold leading-[1.1] tracking-tight text-foreground sm:text-5xl sm:leading-[1.05] lg:text-6xl">
               Ihre Immobilie in{" "}
               <span className="relative whitespace-nowrap">
                 <span className="relative z-10">vertrauensvollen Händen</span>
@@ -123,14 +182,15 @@ export default function HomePage() {
               </span>
               .
             </h1>
-            <p className="max-w-xl text-lg leading-relaxed text-muted-foreground">
-              {siteConfig.tagline}. Wir kümmern uns persönlich und mit einem
-              runden Leistungspaket um Ihre Immobilie — kompetent, transparent
-              und mit Herz für Dorsten und Umgebung.
+            <p className="max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
+              Herzlich willkommen bei der Hausverwaltung Hürland in Dorsten —
+              Ihr zuverlässiger Partner, wenn es um die Verwaltung Ihrer
+              Immobilien in Dorsten und Umgebung geht. Bei uns finden Sie:{" "}
+              <span className="font-medium text-foreground">{siteConfig.usp}</span>.
             </p>
             <div className="flex flex-wrap gap-3">
               <Button asChild size="lg" variant="accent">
-                <Link href="/kontakt">
+                <Link href="/termin">
                   Kostenloses Erstgespräch
                   <ArrowRight className="h-4 w-4" />
                 </Link>
@@ -155,10 +215,10 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className="hidden lg:col-span-5 lg:block">
-            <div className="relative ml-auto h-full max-w-sm">
+          <div className="lg:col-span-5">
+            <div className="relative mx-auto h-full max-w-sm lg:ml-auto lg:mr-0 lg:-mr-6 xl:-mr-12">
               <Card className="relative overflow-hidden border-border/60 bg-card/95 shadow-xl backdrop-blur">
-                <CardContent className="space-y-5 p-7">
+                <CardContent className="space-y-5 p-5 sm:p-7">
                   <div className="flex items-center justify-between">
                     <p className="text-sm font-medium uppercase tracking-wider text-accent">
                       Direkter Kontakt
@@ -184,7 +244,7 @@ export default function HomePage() {
                             {siteConfig.phone}
                           </span>
                           <span className="block text-xs text-muted-foreground">
-                            Mo.–Fr. vormittags
+                            {siteConfig.hours}
                           </span>
                         </span>
                       </a>
@@ -236,7 +296,7 @@ export default function HomePage() {
       <Section>
         <div className="mx-auto max-w-2xl text-center">
           <Eyebrow className="justify-center">Unsere Leistungen</Eyebrow>
-          <h2 className="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl">
+          <h2 className="mt-4 text-2xl font-semibold tracking-tight sm:text-3xl lg:text-4xl">
             Ein rundes Leistungspaket für Ihre Immobilie
           </h2>
           <p className="mt-4 text-base leading-relaxed text-muted-foreground">
@@ -245,7 +305,7 @@ export default function HomePage() {
           </p>
         </div>
 
-        <div className="mt-14 grid gap-6 md:grid-cols-3">
+        <div className="mt-10 grid gap-6 sm:mt-14 md:grid-cols-3">
           {services.map((service) => (
             <Card
               key={service.title}
@@ -290,7 +350,7 @@ export default function HomePage() {
         <div className="grid gap-14 lg:grid-cols-12 lg:gap-12">
           <div className="lg:col-span-5">
             <Eyebrow>Unsere Leitgedanken</Eyebrow>
-            <h2 className="mt-4 font-serif text-3xl font-semibold tracking-tight sm:text-4xl">
+            <h2 className="mt-4 font-serif text-2xl font-semibold tracking-tight sm:text-3xl lg:text-4xl">
               Persönlich, transparent — und immer für Sie da.
             </h2>
             <p className="mt-5 text-base leading-relaxed text-muted-foreground">
@@ -299,14 +359,18 @@ export default function HomePage() {
               Vermieter mit dem gleichen hohen Anspruch an Qualität und
               Verlässlichkeit.
             </p>
-            <div className="mt-8 inline-flex items-center gap-3 rounded-2xl bg-card p-5 ring-1 ring-border">
-              <span className="grid h-12 w-12 place-items-center rounded-full bg-accent text-accent-foreground">
-                <Award className="h-6 w-6" />
-              </span>
+            <div className="mt-8 inline-flex items-center gap-4 rounded-2xl bg-card p-5 ring-1 ring-border">
+              <Image
+                src="/siegel-26a-weg.svg"
+                alt="Siegel: Zertifiziert nach §26a WEG"
+                width={72}
+                height={72}
+                className="shrink-0"
+              />
               <div>
                 <p className="text-sm font-semibold">Zertifizierte Verwalterin</p>
                 <p className="text-xs text-muted-foreground">
-                  nach §26a Wohnungseigentumsgesetz
+                  Geprüft nach §26a Wohnungseigentumsgesetz
                 </p>
               </div>
             </div>
@@ -331,19 +395,55 @@ export default function HomePage() {
       </Section>
 
       {/* STATS */}
-      <Section className="py-16 sm:py-20">
-        <div className="grid gap-8 rounded-3xl border border-border bg-card p-10 shadow-sm sm:grid-cols-2 md:grid-cols-4 md:gap-10">
+      <Section className="py-12 sm:py-16 lg:py-20">
+        <div className="grid grid-cols-2 gap-6 rounded-3xl border border-border bg-card p-6 shadow-sm sm:p-10 md:grid-cols-4 md:gap-10">
           {stats.map((s) => (
             <div key={s.label} className="text-center">
-              <div className="font-serif text-4xl font-semibold text-primary sm:text-5xl">
+              <div className="font-serif text-3xl font-semibold text-primary sm:text-4xl lg:text-5xl">
                 {s.value}
               </div>
-              <p className="mt-2 text-sm leading-snug text-muted-foreground">
+              <p className="mt-2 text-xs leading-snug text-muted-foreground sm:text-sm">
                 {s.label}
               </p>
             </div>
           ))}
         </div>
+      </Section>
+
+      {/* PROCESS — So arbeiten wir */}
+      <Section className="bg-secondary/40">
+        <div className="mx-auto max-w-2xl text-center">
+          <Eyebrow className="justify-center">So arbeiten wir</Eyebrow>
+          <h2 className="mt-4 font-serif text-2xl font-semibold tracking-tight sm:text-3xl lg:text-4xl">
+            In fünf klaren Schritten zu Ihrer neuen Verwaltung.
+          </h2>
+          <p className="mt-4 text-base leading-relaxed text-muted-foreground">
+            Von der ersten Anfrage bis zur laufenden Betreuung — strukturiert,
+            transparent und ohne Überraschungen.
+          </p>
+        </div>
+
+        <ol className="mt-10 grid gap-5 sm:mt-14 md:grid-cols-2 lg:grid-cols-5">
+          {process.map((step, idx) => (
+            <li
+              key={step.title}
+              className="relative rounded-2xl border border-border bg-card p-6 shadow-sm"
+            >
+              <span className="absolute -top-3 left-6 inline-flex h-7 items-center rounded-full bg-accent px-3 text-xs font-semibold text-accent-foreground">
+                Schritt {idx + 1}
+              </span>
+              <span className="mt-3 inline-grid h-10 w-10 place-items-center rounded-xl bg-accent/15 text-accent">
+                <step.icon className="h-5 w-5" />
+              </span>
+              <h3 className="mt-4 font-serif text-lg font-semibold leading-tight">
+                {step.title}
+              </h3>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                {step.description}
+              </p>
+            </li>
+          ))}
+        </ol>
       </Section>
 
       {/* ABOUT TEASER */}
@@ -368,7 +468,7 @@ export default function HomePage() {
           </div>
           <div className="space-y-6">
             <Eyebrow>Über uns</Eyebrow>
-            <h2 className="font-serif text-3xl font-semibold tracking-tight sm:text-4xl">
+            <h2 className="font-serif text-2xl font-semibold tracking-tight sm:text-3xl lg:text-4xl">
               Ein zuverlässiger Partner in allen Immobilien&shy;belangen.
             </h2>
             <div className="space-y-4 text-base leading-relaxed text-muted-foreground">
@@ -400,6 +500,22 @@ export default function HomePage() {
                 </span>
               </div>
             </div>
+            <div className="rounded-2xl border border-border bg-card p-5">
+              <div className="flex items-center gap-2 text-xs font-medium uppercase tracking-wider text-accent">
+                <MapPin className="h-4 w-4" />
+                Unser Einzugsgebiet
+              </div>
+              <div className="mt-3 flex flex-wrap gap-2">
+                {siteConfig.regions.map((region) => (
+                  <span
+                    key={region}
+                    className="inline-flex items-center rounded-full bg-secondary px-3 py-1 text-xs font-medium text-secondary-foreground"
+                  >
+                    {region}
+                  </span>
+                ))}
+              </div>
+            </div>
             <Button asChild variant="outline">
               <Link href="/profil">
                 Mehr über uns
@@ -407,6 +523,44 @@ export default function HomePage() {
               </Link>
             </Button>
           </div>
+        </div>
+      </Section>
+
+      {/* TESTIMONIALS */}
+      <Section className="bg-secondary/40">
+        <div className="mx-auto max-w-2xl text-center">
+          <Eyebrow className="justify-center">Kundenstimmen</Eyebrow>
+          <h2 className="mt-4 font-serif text-2xl font-semibold tracking-tight sm:text-3xl lg:text-4xl">
+            Was unsere Eigentümer und Vermieter sagen.
+          </h2>
+          <p className="mt-4 text-base leading-relaxed text-muted-foreground">
+            Persönlich, zuverlässig und transparent — Vertrauen, das wir uns
+            jeden Tag aufs Neue verdienen.
+          </p>
+        </div>
+
+        <div className="mt-10 grid gap-6 sm:mt-14 md:grid-cols-3">
+          {testimonials.map((t) => (
+            <figure
+              key={t.name}
+              className="flex h-full flex-col rounded-2xl border border-border bg-card p-7 shadow-sm"
+            >
+              <div className="flex items-center gap-1 text-accent">
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <Star key={i} className="h-4 w-4 fill-current" />
+                ))}
+              </div>
+              <blockquote className="mt-4 flex-1 font-serif text-lg leading-snug text-foreground">
+                „{t.quote}"
+              </blockquote>
+              <figcaption className="mt-6 border-t border-border pt-4 text-sm">
+                <span className="block font-semibold text-foreground">
+                  {t.name}
+                </span>
+                <span className="block text-muted-foreground">{t.role}</span>
+              </figcaption>
+            </figure>
+          ))}
         </div>
       </Section>
 
@@ -418,7 +572,7 @@ export default function HomePage() {
           <div className="relative grid gap-10 lg:grid-cols-2 lg:items-center">
             <div>
               <Eyebrow className="text-accent">Lassen Sie uns sprechen</Eyebrow>
-              <h2 className="mt-4 font-serif text-3xl font-semibold tracking-tight sm:text-4xl">
+              <h2 className="mt-4 font-serif text-2xl font-semibold tracking-tight sm:text-3xl lg:text-4xl">
                 Ihre Immobilie verdient eine Verwaltung, die mitdenkt.
               </h2>
               <p className="mt-4 max-w-lg text-base leading-relaxed text-primary-foreground/80">
@@ -429,7 +583,7 @@ export default function HomePage() {
             </div>
             <div className="flex flex-col gap-3 sm:flex-row lg:justify-end">
               <Button asChild variant="accent" size="lg">
-                <Link href="/kontakt">
+                <Link href="/termin">
                   Termin vereinbaren
                   <ArrowRight className="h-4 w-4" />
                 </Link>

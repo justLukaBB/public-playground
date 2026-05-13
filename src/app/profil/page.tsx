@@ -80,7 +80,7 @@ export default function ProfilPage() {
           </div>
           <div className="space-y-6">
             <Eyebrow>Wer wir sind</Eyebrow>
-            <h2 className="font-serif text-3xl font-semibold tracking-tight sm:text-4xl">
+            <h2 className="font-serif text-2xl font-semibold tracking-tight sm:text-3xl lg:text-4xl">
               Ihre Hausverwaltung mit Herz für Dorsten.
             </h2>
             <div className="space-y-4 text-base leading-relaxed text-muted-foreground">
@@ -91,14 +91,25 @@ export default function ProfilPage() {
                 WEG-Verwaltung sowie die Gewerbeverwaltung.
               </p>
               <p>
-                Was uns ausmacht: Wir kennen die Region. Wir kennen die
-                Handwerker. Wir kennen die Wege bei Behörden. Und vor allem
-                kennen wir unsere Kundinnen und Kunden persönlich — denn jede
-                Immobilie ist anders, jede Eigentümergemeinschaft hat ihre
-                Geschichte.
+                Durch die komplette Bewirtschaftung Ihrer Immobilie greifen wir
+                sowohl bei Instandhaltungs- als auch bei Instandsetzungs­maßnahmen
+                auf namhafte, ortsansässige Handwerksunternehmen zurück.
+              </p>
+              <p className="font-medium text-foreground">
+                Wir möchten Sie überzeugen durch{" "}
+                {siteConfig.values.map((v, i) => (
+                  <span key={v}>
+                    <span className="text-accent">{v}</span>
+                    {i < siteConfig.values.length - 2
+                      ? ", "
+                      : i === siteConfig.values.length - 2
+                        ? " und "
+                        : "."}
+                  </span>
+                ))}
               </p>
             </div>
-            <div className="grid grid-cols-3 gap-3 pt-2">
+            <div className="grid grid-cols-1 gap-3 pt-2 sm:grid-cols-3">
               {offerings.map((o) => (
                 <div
                   key={o.title}
@@ -115,11 +126,54 @@ export default function ProfilPage() {
         </div>
       </Section>
 
-      {/* Kernkompetenzen */}
+      {/* Zertifikat */}
       <Section className="bg-secondary/40">
+        <div className="grid items-center gap-10 lg:grid-cols-[auto,1fr] lg:gap-16">
+          <div className="flex justify-center lg:justify-start">
+            <Image
+              src="/siegel-26a-weg.svg"
+              alt="Siegel: Zertifiziert nach §26a WEG"
+              width={200}
+              height={200}
+              className="drop-shadow-md"
+            />
+          </div>
+          <div>
+            <Eyebrow>Zertifikat</Eyebrow>
+            <h2 className="mt-4 font-serif text-2xl font-semibold tracking-tight sm:text-3xl lg:text-4xl">
+              Geprüft & zertifiziert nach §26a WEG.
+            </h2>
+            <p className="mt-4 leading-relaxed text-muted-foreground">
+              Birgit Hürland hat die Prüfung zur zertifizierten Verwalterin
+              gemäß §26a Wohnungseigentumsgesetz erfolgreich abgelegt. Damit
+              erfüllt unsere Verwaltung die seit Dezember 2023 geltenden
+              gesetzlichen Anforderungen für eine ordnungsmäßige Verwaltung von
+              Wohnungseigentum.
+            </p>
+            <ul className="mt-5 space-y-2 text-sm text-foreground/85">
+              <li className="flex items-start gap-2">
+                <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
+                Nachgewiesene rechtliche, kaufmännische und technische
+                Kompetenz
+              </li>
+              <li className="flex items-start gap-2">
+                <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
+                Regelmäßige Fortbildung (20 Stunden in 3 Jahren)
+              </li>
+              <li className="flex items-start gap-2">
+                <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
+                Rechtskonform für jede Eigentümergemeinschaft
+              </li>
+            </ul>
+          </div>
+        </div>
+      </Section>
+
+      {/* Kernkompetenzen */}
+      <Section>
         <div className="mx-auto max-w-2xl text-center">
           <Eyebrow className="justify-center">Kernkompetenzen</Eyebrow>
-          <h2 className="mt-4 font-serif text-3xl font-semibold tracking-tight sm:text-4xl">
+          <h2 className="mt-4 font-serif text-2xl font-semibold tracking-tight sm:text-3xl lg:text-4xl">
             Worauf Sie sich verlassen können.
           </h2>
         </div>
@@ -146,7 +200,7 @@ export default function ProfilPage() {
         <div className="grid gap-12 rounded-3xl border border-border bg-card p-10 shadow-sm lg:grid-cols-12 lg:items-center lg:p-16">
           <div className="lg:col-span-5">
             <Eyebrow>Unser Versprechen</Eyebrow>
-            <h2 className="mt-4 font-serif text-3xl font-semibold tracking-tight sm:text-4xl">
+            <h2 className="mt-4 font-serif text-2xl font-semibold tracking-tight sm:text-3xl lg:text-4xl">
               Persönlich. Verlässlich. Vor Ort.
             </h2>
             <p className="mt-4 text-muted-foreground">
@@ -176,7 +230,7 @@ export default function ProfilPage() {
         <div className="grid items-center gap-10 lg:grid-cols-2">
           <div className="space-y-5">
             <Eyebrow>Unser Standort</Eyebrow>
-            <h2 className="font-serif text-3xl font-semibold tracking-tight sm:text-4xl">
+            <h2 className="font-serif text-2xl font-semibold tracking-tight sm:text-3xl lg:text-4xl">
               Mitten in Dorsten — gut zu erreichen.
             </h2>
             <p className="text-muted-foreground">
@@ -220,9 +274,10 @@ export default function ProfilPage() {
           <div className="overflow-hidden rounded-3xl border border-border shadow-sm">
             <iframe
               title="Standort Hürland Hausverwaltung Dorsten"
-              src="https://www.openstreetmap.org/export/embed.html?bbox=6.965%2C51.658%2C6.975%2C51.665&layer=mapnik&marker=51.6615%2C6.9702"
+              src="https://maps.google.com/maps?q=Ostwall+40-42%2C+46282+Dorsten&z=16&output=embed"
               className="aspect-[4/3] w-full"
               loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
             />
           </div>
         </div>

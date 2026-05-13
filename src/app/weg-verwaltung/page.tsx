@@ -177,7 +177,7 @@ export default function WegVerwaltungPage() {
                   </div>
                 </div>
                 <Button asChild className="mt-6 w-full" variant="accent">
-                  <Link href="/kontakt">Angebot anfordern</Link>
+                  <Link href="/termin">Angebot anfordern</Link>
                 </Button>
               </div>
             </div>
@@ -185,7 +185,7 @@ export default function WegVerwaltungPage() {
 
           <div className="lg:col-span-7">
             <Eyebrow>Unsere Leistungen</Eyebrow>
-            <h2 className="mt-4 font-serif text-3xl font-semibold tracking-tight sm:text-4xl">
+            <h2 className="mt-4 font-serif text-2xl font-semibold tracking-tight sm:text-3xl lg:text-4xl">
               Das breite Leistungsspektrum unserer WEG-Verwaltung.
             </h2>
             <p className="mt-4 text-muted-foreground">
@@ -223,7 +223,7 @@ export default function WegVerwaltungPage() {
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-12">
           <div className="lg:col-span-5">
             <Eyebrow>Unsere Leitgedanken</Eyebrow>
-            <h2 className="mt-4 font-serif text-3xl font-semibold tracking-tight sm:text-4xl">
+            <h2 className="mt-4 font-serif text-2xl font-semibold tracking-tight sm:text-3xl lg:text-4xl">
               Was uns als Verwaltung leitet.
             </h2>
             <p className="mt-5 leading-relaxed text-muted-foreground">

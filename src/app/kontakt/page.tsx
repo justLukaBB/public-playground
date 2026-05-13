@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Clock, Mail, MapPin, Phone, Printer, Smartphone } from "lucide-react";
 import { Section, Eyebrow } from "@/components/section";
 import { PageHero } from "@/components/page-hero";
@@ -37,6 +38,25 @@ const contactItems = [
   },
 ];
 
+const team = [
+  {
+    name: "Birgit Hürland",
+    role: "Geschäftsführerin",
+    image: "/team/person-1.png",
+    email: siteConfig.email,
+    phone: siteConfig.phone,
+    phoneLink: siteConfig.phoneLink,
+  },
+  {
+    name: "Frau Scuric",
+    role: "Partnerin · Hausverwaltung",
+    image: "/team/person-2.png",
+    email: siteConfig.email,
+    phone: siteConfig.phone,
+    phoneLink: siteConfig.phoneLink,
+  },
+];
+
 export default function KontaktPage() {
   return (
     <>
@@ -49,6 +69,63 @@ export default function KontaktPage() {
         title={<>Wir freuen uns auf Ihre Nachricht.</>}
         description="Ob Erstgespräch, Wechsel der Verwaltung oder eine konkrete Frage — wir melden uns zügig bei Ihnen."
       />
+
+      {/* Team / Ansprechpartnerinnen */}
+      <Section className="pb-0">
+        <div className="mx-auto max-w-2xl text-center">
+          <Eyebrow className="justify-center">Ihre Ansprechpartnerinnen</Eyebrow>
+          <h2 className="mt-4 font-serif text-2xl font-semibold tracking-tight sm:text-3xl lg:text-4xl">
+            Persönlich für Sie da.
+          </h2>
+          <p className="mt-4 text-base leading-relaxed text-muted-foreground">
+            Bei uns sprechen Sie nicht mit einer Hotline — sondern direkt mit
+            den Menschen, die Ihre Immobilie betreuen.
+          </p>
+        </div>
+
+        <div className="mx-auto mt-12 grid max-w-3xl gap-6 sm:grid-cols-2">
+          {team.map((person) => (
+            <Card
+              key={person.name}
+              className="overflow-hidden border-border/60 shadow-sm transition-shadow hover:shadow-md"
+            >
+              <div className="relative aspect-[4/5] w-full overflow-hidden bg-secondary">
+                <Image
+                  src={person.image}
+                  alt={`Porträt ${person.name}`}
+                  fill
+                  className="object-cover"
+                  sizes="(min-width: 640px) 50vw, 100vw"
+                />
+              </div>
+              <CardContent className="space-y-3 p-6">
+                <div>
+                  <h3 className="font-serif text-xl font-semibold leading-tight">
+                    {person.name}
+                  </h3>
+                  <p className="mt-1 text-sm text-accent">{person.role}</p>
+                </div>
+                <div className="space-y-2 pt-2 text-sm">
+                  <a
+                    href={`tel:${person.phoneLink}`}
+                    className="flex items-center gap-2 text-foreground hover:text-accent"
+                  >
+                    <Phone className="h-4 w-4 text-accent" />
+                    {person.phone}
+                  </a>
+                  <a
+                    href={`mailto:${person.email}`}
+                    className="flex items-center gap-2 break-all text-foreground hover:text-accent"
+                  >
+                    <Mail className="h-4 w-4 text-accent" />
+                    {person.email}
+                  </a>
+                </div>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </Section>
 
       <Section>
         <div className="grid gap-10 lg:grid-cols-12 lg:gap-12">
@@ -145,9 +222,10 @@ export default function KontaktPage() {
             <div className="overflow-hidden rounded-3xl border border-border shadow-sm">
               <iframe
                 title="Karte – Standort Hürland"
-                src="https://www.openstreetmap.org/export/embed.html?bbox=6.965%2C51.658%2C6.975%2C51.665&layer=mapnik&marker=51.6615%2C6.9702"
+                src="https://maps.google.com/maps?q=Ostwall+40-42%2C+46282+Dorsten&z=16&output=embed"
                 className="aspect-[4/3] w-full"
                 loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
               />
             </div>
           </div>

@@ -64,7 +64,7 @@ export function SiteHeader() {
             </a>
           </Button>
           <Button variant="accent" size="sm" asChild>
-            <Link href="/kontakt">Kontakt aufnehmen</Link>
+            <Link href="/termin">Termin anfragen</Link>
           </Button>
         </div>
 
@@ -111,7 +111,7 @@ export function SiteHeader() {
                 <span className="text-muted-foreground">{siteConfig.hours}</span>
                 <SheetClose asChild>
                   <Button asChild className="mt-2 w-full" variant="accent">
-                    <Link href="/kontakt">Kontakt aufnehmen</Link>
+                    <Link href="/termin">Termin anfragen</Link>
                   </Button>
                 </SheetClose>
               </div>

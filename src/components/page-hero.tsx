@@ -19,7 +19,7 @@ export function PageHero({
     <section className="relative overflow-hidden border-b border-border bg-secondary/30">
       <div className="absolute -right-32 top-0 h-72 w-72 rounded-full bg-accent/20 blur-3xl" />
       <div className="absolute -bottom-20 -left-20 h-64 w-64 rounded-full bg-primary/10 blur-3xl" />
-      <div className="relative mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-24">
+      <div className="relative mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-20 lg:px-8 lg:py-24">
         {breadcrumb && (
           <nav
             aria-label="Brotkrumen"
@@ -45,11 +45,11 @@ export function PageHero({
           </nav>
         )}
         <Eyebrow>{eyebrow}</Eyebrow>
-        <h1 className="mt-4 max-w-3xl font-serif text-4xl font-semibold leading-tight tracking-tight sm:text-5xl lg:text-6xl">
+        <h1 className="mt-4 max-w-3xl font-serif text-3xl font-semibold leading-tight tracking-tight sm:text-5xl lg:text-6xl">
           {title}
         </h1>
         {description && (
-          <p className="mt-5 max-w-2xl text-lg leading-relaxed text-muted-foreground">
+          <p className="mt-5 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
             {description}
           </p>
         )}

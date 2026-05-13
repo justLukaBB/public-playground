@@ -2,6 +2,7 @@ export const siteConfig = {
   company: "Hürland-Scuric Immobilien GmbH",
   shortName: "Hürland Hausverwaltung",
   tagline: "Ihre Hausverwaltung mit individuellem und persönlichem Service",
+  headline: "Zuverlässige Hausverwaltung in Dorsten & Umgebung",
   city: "Dorsten",
   address: {
     street: "Ostwall 40-42",
@@ -15,12 +16,23 @@ export const siteConfig = {
   fax: "02362/9930551",
   email: "info@huerland-hausverwaltung.de",
   hours: "Mo.–Fr. 9:00 – 12:00 Uhr",
+  usp: "Faire Konditionen, Kompetenz und Professionalität",
+  values: ["Kundennähe", "Kompetenz", "Flexibilität", "Transparenz"],
   founded: "Hürland-Scuric Immobilien GmbH",
   managingDirector: "Birgit Hürland",
   registerCourt: "Amtsgericht Gelsenkirchen HRB 11990",
   taxId: "359/5762/4227",
   supervisoryAuthority: "Stadt Recklinghausen / Ordnungsamt",
   certification: "Zertifizierte Verwalterin nach §26a WEG",
+  experienceYears: "15+",
+  regions: [
+    "Dorsten",
+    "Marl",
+    "Recklinghausen",
+    "Bottrop",
+    "Schermbeck",
+    "Gladbeck",
+  ],
 };
 
 export const nav = [
@@ -28,5 +40,6 @@ export const nav = [
   { label: "WEG-Verwaltung", href: "/weg-verwaltung" },
   { label: "Mietverwaltung", href: "/mietverwaltung" },
   { label: "Profil", href: "/profil" },
+  { label: "Termin", href: "/termin" },
   { label: "Kontakt", href: "/kontakt" },
 ];

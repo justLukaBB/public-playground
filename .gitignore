@@ -39,3 +39,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# lokale Helfer / separate Apps (nicht Teil der Webseite)
+/Termin-Box/
+*.command

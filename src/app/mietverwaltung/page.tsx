@@ -4,9 +4,11 @@ import {
   ArrowRight,
   Banknote,
   BellRing,
+  Building2,
   Calculator,
   CheckCircle2,
   ClipboardCheck,
+  Eye,
   FileSearch,
   Flame,
   Handshake,
@@ -17,6 +19,7 @@ import {
   Phone,
   Receipt,
   RefreshCw,
+  Scale,
   ScrollText,
   ShieldCheck,
   Sparkles,
@@ -112,6 +115,27 @@ const groups = [
         title: "Hausmeister & Pflege",
         text: "Steuerung von Hausmeister-, Reinigungs- und Gärtnerdiensten.",
       },
+      {
+        icon: Eye,
+        title: "Gebäudezustandsüberwachung",
+        text: "Regelmäßige Kontrolle des baulichen Zustands Ihrer Immobilie.",
+      },
+    ],
+  },
+  {
+    title: "Ordnung & Mietergemeinschaft",
+    icon: Scale,
+    items: [
+      {
+        icon: Scale,
+        title: "Hausordnung",
+        text: "Festlegung und Überwachung einer klar formulierten Hausordnung.",
+      },
+      {
+        icon: Building2,
+        title: "Gewerbeverwaltung",
+        text: "Auch für Gewerbeobjekte: kaufmännische und technische Betreuung.",
+      },
     ],
   },
   {
@@ -155,7 +179,7 @@ export default function MietverwaltungPage() {
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
           <div className="space-y-6">
             <Eyebrow>Vermietungsservice</Eyebrow>
-            <h2 className="font-serif text-3xl font-semibold tracking-tight sm:text-4xl">
+            <h2 className="font-serif text-2xl font-semibold tracking-tight sm:text-3xl lg:text-4xl">
               Von der Mietersuche bis zur Übergabe — alles aus einer Hand.
             </h2>
             <p className="text-base leading-relaxed text-muted-foreground">
@@ -220,8 +244,8 @@ export default function MietverwaltungPage() {
       <Section className="bg-secondary/40">
         <div className="mx-auto max-w-2xl text-center">
           <Eyebrow className="justify-center">Unsere Leistungen</Eyebrow>
-          <h2 className="mt-4 font-serif text-3xl font-semibold tracking-tight sm:text-4xl">
-            Umfassende Betreuung in fünf Bereichen.
+          <h2 className="mt-4 font-serif text-2xl font-semibold tracking-tight sm:text-3xl lg:text-4xl">
+            Umfassende Betreuung in sechs Bereichen.
           </h2>
           <p className="mt-4 text-muted-foreground">
             Ob Wohnen oder Gewerbe — wir kümmern uns um alles, was nötig ist,
@@ -271,7 +295,7 @@ export default function MietverwaltungPage() {
           <div className="relative grid gap-10 lg:grid-cols-2 lg:items-center">
             <div>
               <Eyebrow className="text-accent">Bereit, loszulegen?</Eyebrow>
-              <h2 className="mt-4 font-serif text-3xl font-semibold tracking-tight sm:text-4xl">
+              <h2 className="mt-4 font-serif text-2xl font-semibold tracking-tight sm:text-3xl lg:text-4xl">
                 Übergeben Sie Ihre Mietobjekte in gute Hände.
               </h2>
               <p className="mt-4 max-w-lg leading-relaxed text-primary-foreground/80">
@@ -281,7 +305,7 @@ export default function MietverwaltungPage() {
             </div>
             <div className="flex flex-col gap-3 sm:flex-row lg:justify-end">
               <Button asChild variant="accent" size="lg">
-                <Link href="/kontakt">
+                <Link href="/termin">
                   Termin vereinbaren <ArrowRight className="h-4 w-4" />
                 </Link>
               </Button>
