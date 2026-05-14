@@ -15,7 +15,7 @@ export function Logo({ className, small = false }: LogoProps) {
     <Link
       href="/"
       className={cn(
-        "group inline-flex items-center transition-opacity hover:opacity-90",
+        "tap-press-soft group inline-flex transform-gpu items-center transition-opacity hover:opacity-90",
         className
       )}
       aria-label="Hausverwaltung Hürland Dorsten – Zur Startseite"
@@ -26,7 +26,7 @@ export function Logo({ className, small = false }: LogoProps) {
         width={width}
         height={height}
         priority
-        className="h-9 w-auto sm:h-11"
+        className="glow-accent h-9 w-auto sm:h-11"
       />
     </Link>
   );

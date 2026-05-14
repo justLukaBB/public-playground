@@ -24,6 +24,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Section, Eyebrow } from "@/components/section";
+import { Reveal, Stagger, StaggerItem } from "@/components/reveal";
 import { siteConfig } from "@/lib/site";
 
 const services = [
@@ -305,44 +306,46 @@ export default function HomePage() {
           </p>
         </div>
 
-        <div className="mt-10 grid gap-6 sm:mt-14 md:grid-cols-3">
+        <Stagger className="mt-10 grid gap-6 sm:mt-14 md:grid-cols-3">
           {services.map((service) => (
-            <Card
-              key={service.title}
-              className="group relative overflow-hidden border-border/70 transition-all hover:-translate-y-1 hover:shadow-md"
-            >
-              <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-transparent via-accent to-transparent opacity-0 transition-opacity group-hover:opacity-100" />
-              <CardContent className="space-y-5 p-7">
-                <span className="grid h-12 w-12 place-items-center rounded-xl bg-accent/15 text-accent">
-                  <service.icon className="h-6 w-6" />
-                </span>
-                <div>
-                  <h3 className="font-serif text-2xl font-semibold leading-tight">
-                    {service.title}
-                  </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                    {service.description}
-                  </p>
-                </div>
-                <ul className="space-y-2 text-sm">
-                  {service.highlights.map((h) => (
-                    <li key={h} className="flex items-start gap-2">
-                      <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
-                      <span className="text-foreground/80">{h}</span>
-                    </li>
-                  ))}
-                </ul>
-                <Link
-                  href={service.href}
-                  className="inline-flex items-center gap-1 text-sm font-medium text-primary transition-colors hover:text-accent"
-                >
-                  Mehr erfahren
-                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                </Link>
-              </CardContent>
-            </Card>
+            <StaggerItem key={service.title}>
+              <Card
+                interactive
+                className="group relative h-full overflow-hidden border-border/70"
+              >
+                <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-transparent via-accent to-transparent opacity-0 transition-opacity group-hover:opacity-100" />
+                <CardContent className="space-y-5 p-7">
+                  <span className="grid h-12 w-12 place-items-center rounded-xl bg-accent/15 text-accent">
+                    <service.icon className="h-6 w-6" />
+                  </span>
+                  <div>
+                    <h3 className="font-serif text-2xl font-semibold leading-tight">
+                      {service.title}
+                    </h3>
+                    <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                      {service.description}
+                    </p>
+                  </div>
+                  <ul className="space-y-2 text-sm">
+                    {service.highlights.map((h) => (
+                      <li key={h} className="flex items-start gap-2">
+                        <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
+                        <span className="text-foreground/80">{h}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <Link
+                    href={service.href}
+                    className="inline-flex items-center gap-1 text-sm font-medium text-primary transition-colors hover:text-accent"
+                  >
+                    Mehr erfahren
+                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  </Link>
+                </CardContent>
+              </Card>
+            </StaggerItem>
           ))}
-        </div>
+        </Stagger>
       </Section>
 
       {/* VALUES / TRUST */}
@@ -375,9 +378,9 @@ export default function HomePage() {
               </div>
             </div>
           </div>
-          <div className="grid gap-5 sm:grid-cols-2 lg:col-span-7">
+          <Stagger className="grid gap-5 sm:grid-cols-2 lg:col-span-7">
             {values.map((v) => (
-              <div
+              <StaggerItem
                 key={v.title}
                 className="rounded-2xl border border-border bg-card p-6 shadow-sm transition-shadow hover:shadow-md"
               >
@@ -388,26 +391,29 @@ export default function HomePage() {
                 <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
                   {v.description}
                 </p>
-              </div>
+              </StaggerItem>
             ))}
-          </div>
+          </Stagger>
         </div>
       </Section>
 
       {/* STATS */}
       <Section className="py-12 sm:py-16 lg:py-20">
-        <div className="grid grid-cols-2 gap-6 rounded-3xl border border-border bg-card p-6 shadow-sm sm:p-10 md:grid-cols-4 md:gap-10">
+        <Stagger
+          stagger={0.1}
+          className="grid grid-cols-2 gap-6 rounded-3xl border border-border bg-card p-6 shadow-sm sm:p-10 md:grid-cols-4 md:gap-10"
+        >
           {stats.map((s) => (
-            <div key={s.label} className="text-center">
+            <StaggerItem key={s.label} className="text-center">
               <div className="font-serif text-3xl font-semibold text-primary sm:text-4xl lg:text-5xl">
                 {s.value}
               </div>
               <p className="mt-2 text-xs leading-snug text-muted-foreground sm:text-sm">
                 {s.label}
               </p>
-            </div>
+            </StaggerItem>
           ))}
-        </div>
+        </Stagger>
       </Section>
 
       {/* PROCESS — So arbeiten wir */}
@@ -423,10 +429,14 @@ export default function HomePage() {
           </p>
         </div>
 
-        <ol className="mt-10 grid gap-5 sm:mt-14 md:grid-cols-2 lg:grid-cols-5">
+        <Stagger
+          as="ol"
+          className="mt-10 grid gap-5 sm:mt-14 md:grid-cols-2 lg:grid-cols-5"
+        >
           {process.map((step, idx) => (
-            <li
+            <StaggerItem
               key={step.title}
+              as="li"
               className="relative rounded-2xl border border-border bg-card p-6 shadow-sm"
             >
               <span className="absolute -top-3 left-6 inline-flex h-7 items-center rounded-full bg-accent px-3 text-xs font-semibold text-accent-foreground">
@@ -441,9 +451,9 @@ export default function HomePage() {
               <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
                 {step.description}
               </p>
-            </li>
+            </StaggerItem>
           ))}
-        </ol>
+        </Stagger>
       </Section>
 
       {/* ABOUT TEASER */}
@@ -539,15 +549,20 @@ export default function HomePage() {
           </p>
         </div>
 
-        <div className="mt-10 grid gap-6 sm:mt-14 md:grid-cols-3">
+        <Stagger className="mt-10 grid gap-6 sm:mt-14 md:grid-cols-3">
           {testimonials.map((t) => (
-            <figure
+            <StaggerItem
               key={t.name}
+              as="figure"
               className="flex h-full flex-col rounded-2xl border border-border bg-card p-7 shadow-sm"
             >
-              <div className="flex items-center gap-1 text-accent">
+              <div className="flex items-center gap-1 text-amber-400">
                 {Array.from({ length: 5 }).map((_, i) => (
-                  <Star key={i} className="h-4 w-4 fill-current" />
+                  <Star
+                    key={i}
+                    className="star-shimmer h-4 w-4 fill-current"
+                    style={{ animationDelay: `${i * 0.18}s` }}
+                  />
                 ))}
               </div>
               <blockquote className="mt-4 flex-1 font-serif text-lg leading-snug text-foreground">
@@ -559,14 +574,14 @@ export default function HomePage() {
                 </span>
                 <span className="block text-muted-foreground">{t.role}</span>
               </figcaption>
-            </figure>
+            </StaggerItem>
           ))}
-        </div>
+        </Stagger>
       </Section>
 
       {/* CTA */}
       <Section>
-        <div className="relative overflow-hidden rounded-3xl bg-primary p-10 text-primary-foreground sm:p-16">
+        <Reveal className="relative overflow-hidden rounded-3xl bg-primary p-10 text-primary-foreground sm:p-16">
           <div className="absolute -right-20 -top-20 h-72 w-72 rounded-full bg-accent/30 blur-3xl" />
           <div className="absolute -bottom-20 -left-10 h-64 w-64 rounded-full bg-accent/20 blur-3xl" />
           <div className="relative grid gap-10 lg:grid-cols-2 lg:items-center">
@@ -601,7 +616,7 @@ export default function HomePage() {
               </Button>
             </div>
           </div>
-        </div>
+        </Reveal>
       </Section>
     </>
   );

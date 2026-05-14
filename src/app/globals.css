@@ -104,6 +104,10 @@
   * {
     border-color: var(--border);
   }
+  html {
+    /* iOS Safari: kein blauer Tap-Flash */
+    -webkit-tap-highlight-color: transparent;
+  }
   body {
     background-color: var(--background);
     color: var(--foreground);
@@ -117,5 +121,106 @@
   ::selection {
     background-color: var(--accent);
     color: var(--accent-foreground);
+  }
+  /* iOS-typische Spring-Easings */
+  :root {
+    --ease-ios: cubic-bezier(0.32, 0.72, 0, 1);
+    --ease-ios-back: cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+}
+
+@layer utilities {
+  /* iPhone-Style „Press" – kurzes Scale-down beim Tap, mit Spring-Easing.
+     Auf Touch-Targets anwenden (Buttons, Cards, Nav-Links). */
+  .tap-press {
+    transition: transform 220ms var(--ease-ios);
+    -webkit-tap-highlight-color: transparent;
+    will-change: transform;
+  }
+  .tap-press:active {
+    transform: scale(0.96);
+    transition-duration: 90ms;
+  }
+  .tap-press-soft {
+    transition: transform 280ms var(--ease-ios);
+    -webkit-tap-highlight-color: transparent;
+    will-change: transform;
+  }
+  .tap-press-soft:active {
+    transform: scale(0.985);
+    transition-duration: 110ms;
+  }
+  /* Sanftes Heben (für interaktive Karten). */
+  .hover-lift {
+    transition:
+      transform 320ms var(--ease-ios),
+      box-shadow 320ms var(--ease-ios);
+  }
+  @media (hover: hover) {
+    .hover-lift:hover {
+      transform: translateY(-2px);
+    }
+  }
+  /* Grünes Aufleuchten (z. B. Logo, Primary-CTA beim Hover). */
+  .glow-accent {
+    transition:
+      filter 360ms var(--ease-ios),
+      box-shadow 360ms var(--ease-ios),
+      transform 360ms var(--ease-ios);
+  }
+  @media (hover: hover) {
+    .glow-accent:hover,
+    .group:hover .glow-accent {
+      filter: drop-shadow(0 0 14px oklch(0.62 0.16 150 / 0.55));
+    }
+    .glow-accent-btn:hover {
+      box-shadow:
+        0 6px 18px oklch(0.62 0.16 150 / 0.35),
+        0 0 24px oklch(0.62 0.16 150 / 0.45);
+    }
+  }
+  /* Fade-/Slide-up beim ersten Sichtbarwerden. */
+  .reveal-up {
+    animation: reveal-up 600ms var(--ease-ios) both;
+  }
+  @keyframes reveal-up {
+    from {
+      opacity: 0;
+      transform: translateY(14px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  /* Glänzendes, schimmerndes Pulsieren – für Sterne / Highlights. */
+  .star-shimmer {
+    animation: star-shimmer 2.4s ease-in-out infinite;
+    will-change: filter;
+  }
+  @keyframes star-shimmer {
+    0%,
+    100% {
+      filter: brightness(1) drop-shadow(0 0 0 transparent);
+    }
+    50% {
+      filter: brightness(1.2)
+        drop-shadow(0 0 6px oklch(0.88 0.18 85 / 0.75));
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+  .tap-press:active,
+  .tap-press-soft:active,
+  .hover-lift:hover {
+    transform: none;
   }
 }

@@ -44,7 +44,7 @@ export function SiteHeader() {
                 key={item.href}
                 href={item.href}
                 className={cn(
-                  "rounded-full px-4 py-2 text-sm font-medium transition-colors",
+                  "tap-press transform-gpu whitespace-nowrap rounded-full px-4 py-2 text-sm font-medium transition-colors",
                   active
                     ? "bg-secondary text-primary"
                     : "text-muted-foreground hover:bg-secondary/60 hover:text-foreground"
@@ -57,10 +57,16 @@ export function SiteHeader() {
         </nav>
 
         <div className="hidden items-center gap-2 md:flex">
-          <Button variant="ghost" size="sm" asChild className="text-foreground">
-            <a href={`tel:${siteConfig.phoneLink}`} className="gap-2">
-              <Phone className="h-4 w-4 text-accent" />
-              {siteConfig.phone}
+          <Button
+            variant="ghost"
+            size="icon"
+            asChild
+            aria-label={`Anrufen: ${siteConfig.phone}`}
+            title={siteConfig.phone}
+            className="glow-accent-btn hover:bg-transparent"
+          >
+            <a href={`tel:${siteConfig.phoneLink}`}>
+              <Phone className="h-5 w-5 text-accent" fill="currentColor" />
             </a>
           </Button>
           <Button variant="accent" size="sm" asChild>
@@ -68,7 +74,7 @@ export function SiteHeader() {
           </Button>
         </div>
 
-        <div className="md:hidden">
+        <div className="flex items-center gap-2 md:hidden">
           <Sheet>
             <SheetTrigger asChild>
               <Button variant="outline" size="icon" aria-label="Menü öffnen">
@@ -88,7 +94,7 @@ export function SiteHeader() {
                       <Link
                         href={item.href}
                         className={cn(
-                          "rounded-lg px-4 py-3 text-base font-medium transition-colors",
+                          "tap-press transform-gpu rounded-lg px-4 py-3 text-base font-medium transition-colors",
                           active
                             ? "bg-secondary text-primary"
                             : "text-foreground hover:bg-secondary"

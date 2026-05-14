@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { Clock, Mail, MapPin, Phone, Printer, Smartphone } from "lucide-react";
 import { Section, Eyebrow } from "@/components/section";
 import { PageHero } from "@/components/page-hero";
@@ -42,15 +41,13 @@ const team = [
   {
     name: "Birgit Hürland",
     role: "Geschäftsführerin",
-    image: "/team/person-1.png",
     email: siteConfig.email,
     phone: siteConfig.phone,
     phoneLink: siteConfig.phoneLink,
   },
   {
-    name: "Frau Scuric",
+    name: "Ruth Keller",
     role: "Partnerin · Hausverwaltung",
-    image: "/team/person-2.png",
     email: siteConfig.email,
     phone: siteConfig.phone,
     phoneLink: siteConfig.phoneLink,
@@ -87,17 +84,9 @@ export default function KontaktPage() {
           {team.map((person) => (
             <Card
               key={person.name}
-              className="overflow-hidden border-border/60 shadow-sm transition-shadow hover:shadow-md"
+              interactive
+              className="overflow-hidden border-border/60 shadow-sm"
             >
-              <div className="relative aspect-[4/5] w-full overflow-hidden bg-secondary">
-                <Image
-                  src={person.image}
-                  alt={`Porträt ${person.name}`}
-                  fill
-                  className="object-cover"
-                  sizes="(min-width: 640px) 50vw, 100vw"
-                />
-              </div>
               <CardContent className="space-y-3 p-6">
                 <div>
                   <h3 className="font-serif text-xl font-semibold leading-tight">

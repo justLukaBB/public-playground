@@ -37,8 +37,8 @@ export const siteConfig = {
 
 export const nav = [
   { label: "Startseite", href: "/" },
-  { label: "WEG-Verwaltung", href: "/weg-verwaltung" },
   { label: "Mietverwaltung", href: "/mietverwaltung" },
+  { label: "WEG-Verwaltung", href: "/weg-verwaltung" },
   { label: "Profil", href: "/profil" },
   { label: "Termin", href: "/termin" },
   { label: "Kontakt", href: "/kontakt" },
