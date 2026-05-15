@@ -106,7 +106,7 @@ export default function KontaktPage() {
                         alt={`Porträt von ${person.name}`}
                         fill
                         sizes="112px"
-                        className="object-cover"
+                        className="origin-top scale-125 object-cover"
                       />
                     ) : (
                       <span className="absolute inset-0 grid place-items-center font-serif text-2xl font-semibold text-accent">
