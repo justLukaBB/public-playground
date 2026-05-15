@@ -70,7 +70,7 @@ export default function KontaktPage() {
         ]}
         eyebrow="Schreiben Sie uns"
         title={<>Wir freuen uns auf Ihre Nachricht.</>}
-        description="Ob Erstgespräch, Wechsel der Verwaltung oder eine konkrete Frage — wir melden uns zügig bei Ihnen."
+        description="Erstgespräch, Wechsel oder Frage — wir melden uns zügig."
       />
 
       {/* Team / Ansprechpartnerinnen */}
@@ -81,8 +81,7 @@ export default function KontaktPage() {
             Persönlich für Sie da.
           </h2>
           <p className="mt-4 text-base leading-relaxed text-muted-foreground">
-            Bei uns sprechen Sie nicht mit einer Hotline — sondern direkt mit
-            den Menschen, die Ihre Immobilie betreuen.
+            Direkt mit den Menschen, die Ihre Immobilie betreuen.
           </p>
         </div>
 

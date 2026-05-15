@@ -11,8 +11,7 @@ export function SiteFooter() {
         <div className="space-y-4 lg:col-span-2">
           <Logo />
           <p className="max-w-md text-sm leading-relaxed text-muted-foreground">
-            Seriöser und zuverlässiger Partner in allen Belangen der
-            professionellen Immobilienverwaltung in Dorsten und Umgebung.
+            Professionelle Immobilienverwaltung in Dorsten und Umgebung.
           </p>
         </div>
 

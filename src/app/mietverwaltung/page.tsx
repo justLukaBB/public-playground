@@ -171,7 +171,7 @@ export default function MietverwaltungPage() {
         ]}
         eyebrow="Für Vermieter & Gewerbetreibende"
         title={<>Mietverwaltung, die Ihnen Arbeit abnimmt.</>}
-        description="Wir übernehmen die komplette Abwicklung Ihrer Miet- und Gewerbeobjekte — kaufmännisch, technisch und im persönlichen Kontakt mit Ihren Mietern."
+        description="Komplette Betreuung Ihrer Miet- und Gewerbeobjekte — kaufmännisch, technisch und persönlich."
       />
 
       {/* Highlight Vermietung */}
@@ -183,10 +183,8 @@ export default function MietverwaltungPage() {
               Von der Mietersuche bis zur Übergabe — alles aus einer Hand.
             </h2>
             <p className="text-base leading-relaxed text-muted-foreground">
-              Die Hausverwaltung Hürland übernimmt die komplette Abwicklung:
-              von der Suche nach dem geeigneten Mieter über die Abnahme bis hin
-              zur Übergabe Ihrer Immobilie. So bleiben Ihre Räume nicht lange
-              leer — und Sie können sich entspannt zurücklehnen.
+              Von der Mietersuche bis zur Schlüsselübergabe — Sie müssen sich um
+              nichts kümmern.
             </p>
             <ul className="grid gap-3 sm:grid-cols-2">
               {[
@@ -248,8 +246,7 @@ export default function MietverwaltungPage() {
             Umfassende Betreuung in sechs Bereichen.
           </h2>
           <p className="mt-4 text-muted-foreground">
-            Ob Wohnen oder Gewerbe — wir kümmern uns um alles, was nötig ist,
-            damit Ihre Immobilie reibungslos läuft.
+            Ob Wohnen oder Gewerbe — wir kümmern uns um alles.
           </p>
         </div>
 
@@ -299,8 +296,7 @@ export default function MietverwaltungPage() {
                 Übergeben Sie Ihre Mietobjekte in gute Hände.
               </h2>
               <p className="mt-4 max-w-lg leading-relaxed text-primary-foreground/80">
-                Ein kurzes Gespräch reicht, um zu klären, ob wir zueinander
-                passen. Unverbindlich und kostenfrei.
+                Ein kurzes Gespräch reicht — unverbindlich und kostenfrei.
               </p>
             </div>
             <div className="flex flex-col gap-3 sm:flex-row lg:justify-end">

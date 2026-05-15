@@ -2,7 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowRight,
-  CalendarClock,
   ClipboardList,
   FileCheck2,
   FileText,
@@ -10,7 +9,6 @@ import {
   Phone,
   Receipt,
   ShieldCheck,
-  Sparkles,
   Wrench,
   Users,
   Vote,
@@ -96,24 +94,6 @@ const services = [
   },
 ];
 
-const principles = [
-  {
-    icon: ShieldCheck,
-    title: "Werterhaltung",
-    text: "Wir denken in Jahren statt Monaten. Regelmäßige Instandhaltung schützt die Substanz Ihres Eigentums.",
-  },
-  {
-    icon: Sparkles,
-    title: "Kostengünstige Bewirtschaftung",
-    text: "Faire Konditionen durch lokale Handwerker und eine Verwaltung, die mitdenkt.",
-  },
-  {
-    icon: Users,
-    title: "Nachbarschaftliches Miteinander",
-    text: "Wir fördern ein gutes Miteinander unter den Eigentümern — denn das ist die Basis jeder Gemeinschaft.",
-  },
-];
-
 export default function WegVerwaltungPage() {
   return (
     <>
@@ -124,13 +104,13 @@ export default function WegVerwaltungPage() {
         ]}
         eyebrow="Für Eigentümergemeinschaften"
         title={<>WEG-Verwaltung in Dorsten.</>}
-        description="Um Ihnen den bestmöglichen Service für Ihr Eigentum zu gewährleisten, bieten wir ein breites Leistungsspektrum — von der Jahresabrechnung über die Eigentümerversammlung bis zur Schadensregulierung."
+        description="Von der Jahresabrechnung über die Eigentümerversammlung bis zur Schadensregulierung."
       />
 
       <Section>
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-5">
-            <div className="sticky top-28 space-y-6">
+            <div className="sticky top-28">
               <div className="relative aspect-[4/5] overflow-hidden rounded-3xl shadow-lg ring-1 ring-border">
                 <Image
                   src="https://images.unsplash.com/photo-1582407947304-fd86f028f716?auto=format&fit=crop&w=1000&q=80"
@@ -140,28 +120,13 @@ export default function WegVerwaltungPage() {
                   sizes="(min-width: 1024px) 40vw, 100vw"
                 />
               </div>
-              <div className="rounded-2xl border border-border bg-card p-6 shadow-sm">
-                <div className="space-y-2 text-sm">
-                  <div className="flex items-center gap-2 text-foreground/85">
-                    <CalendarClock className="h-4 w-4 text-accent" />
-                    Vertragslaufzeiten ab 12 Monaten
-                  </div>
-                  <div className="flex items-center gap-2 text-foreground/85">
-                    <Scale className="h-4 w-4 text-accent" />
-                    Auch Teileigentum
-                  </div>
-                </div>
-                <Button asChild className="mt-6 w-full" variant="accent">
-                  <Link href="/termin">Angebot anfordern</Link>
-                </Button>
-              </div>
             </div>
           </div>
 
           <div className="lg:col-span-7">
             <Eyebrow>Unsere Leistungen</Eyebrow>
             <h2 className="mt-4 font-serif text-2xl font-semibold tracking-tight sm:text-3xl lg:text-4xl">
-              Das breite Leistungsspektrum unserer WEG-Verwaltung.
+              Unser Leistungsspektrum.
             </h2>
 
             <div className="mt-10 grid gap-4 sm:grid-cols-2">
@@ -184,42 +149,6 @@ export default function WegVerwaltungPage() {
                 </div>
               ))}
             </div>
-          </div>
-        </div>
-      </Section>
-
-      {/* Leitgedanken */}
-      <Section className="bg-secondary/40">
-        <div className="grid gap-12 lg:grid-cols-12 lg:gap-12">
-          <div className="lg:col-span-5">
-            <Eyebrow>Unsere Leitgedanken</Eyebrow>
-            <h2 className="mt-4 font-serif text-2xl font-semibold tracking-tight sm:text-3xl lg:text-4xl">
-              Was uns als Verwaltung leitet.
-            </h2>
-            <p className="mt-5 leading-relaxed text-muted-foreground">
-              Unsere Geschäftstätigkeit orientiert sich an Werterhaltung,
-              kostengünstiger Bewirtschaftung, vertrauensvollen
-              Kundenbeziehungen und der Förderung eines guten
-              nachbarschaftlichen Verhältnisses.
-            </p>
-          </div>
-          <div className="space-y-4 lg:col-span-7">
-            {principles.map((p) => (
-              <div
-                key={p.title}
-                className="flex gap-5 rounded-2xl border border-border bg-card p-6"
-              >
-                <span className="grid h-12 w-12 shrink-0 place-items-center rounded-xl bg-primary/10 text-primary">
-                  <p.icon className="h-6 w-6" />
-                </span>
-                <div>
-                  <h3 className="font-serif text-xl font-semibold">{p.title}</h3>
-                  <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
-                    {p.text}
-                  </p>
-                </div>
-              </div>
-            ))}
           </div>
         </div>
       </Section>

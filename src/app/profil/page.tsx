@@ -20,7 +20,7 @@ import { siteConfig } from "@/lib/site";
 export const metadata = {
   title: "Profil",
   description:
-    "Lernen Sie die Hürland-Scuric Immobilien GmbH kennen — Ihre seriöse und zuverlässige Hausverwaltung in Dorsten.",
+    "Lernen Sie die Hürland-Scuric Immobilien GmbH kennen — Ihre Hausverwaltung in Dorsten.",
 };
 
 const competencies = [
@@ -52,7 +52,7 @@ export default function ProfilPage() {
         ]}
         eyebrow="Über uns"
         title={<>Mitten in Dorsten.</>}
-        description="Wir sind die Hürland-Scuric Immobilien GmbH: Ihre Hausverwaltung mit individuellem und persönlichem Service. Persönlich und transparent."
+        description="Hürland-Scuric Immobilien GmbH — Hausverwaltung mit persönlichem Service."
       />
 
       {/* Intro */}
@@ -74,15 +74,12 @@ export default function ProfilPage() {
             </h2>
             <div className="space-y-4 text-base leading-relaxed text-muted-foreground">
               <p>
-                Wir stehen Ihnen als seriöser und zuverlässiger Partner in allen
-                Belangen der professionellen Immobilienverwaltung zur Seite.
-                Unser Leistungsspektrum umfasst die Mietverwaltung, die
-                WEG-Verwaltung sowie die Gewerbeverwaltung.
+                Wir übernehmen Mietverwaltung, WEG-Verwaltung und
+                Gewerbeverwaltung.
               </p>
               <p>
-                Durch die komplette Bewirtschaftung Ihrer Immobilie greifen wir
-                sowohl bei Instandhaltungs- als auch bei Instandsetzungs­maßnahmen
-                auf namhafte, ortsansässige Handwerksunternehmen zurück.
+                Bei Instandhaltung und Reparaturen arbeiten wir mit
+                ortsansässigen Handwerksbetrieben.
               </p>
               <p className="font-medium text-foreground">
                 Wir möchten Sie überzeugen durch{" "}
@@ -150,17 +147,15 @@ export default function ProfilPage() {
               Persönlich. Verlässlich. Vor Ort.
             </h2>
             <p className="mt-4 text-muted-foreground">
-              Wir verwalten Immobilien so, wie wir selbst betreut werden möchten
-              — mit kurzen Wegen, klaren Worten und echter Sorgfalt.
+              Kurze Wege, klare Worte, echte Sorgfalt.
             </p>
           </div>
           <ul className="space-y-4 lg:col-span-7">
             {[
-              "Ein fester Ansprechpartner für Sie und Ihre Mieter — keine anonymen Hotlines.",
-              "Schnelle Reaktion bei Schadens- und Reparaturfällen durch lokale Partnerbetriebe.",
-              "Transparente Abrechnungen, die Sie auch ohne Lupe verstehen.",
-              "Klare Vertragslaufzeiten ab 12 Monaten — fair für beide Seiten.",
-              "Werterhaltung Ihrer Immobilie als oberstes Ziel.",
+              "Ein fester Ansprechpartner — keine Hotlines.",
+              "Schnelle Reaktion durch lokale Handwerker.",
+              "Abrechnungen, die Sie verstehen.",
+              "Werterhaltung Ihrer Immobilie.",
             ].map((item) => (
               <li key={item} className="flex items-start gap-3">
                 <CheckCircle2 className="mt-1 h-5 w-5 shrink-0 text-accent" />
@@ -180,8 +175,7 @@ export default function ProfilPage() {
               Mitten in Dorsten — gut zu erreichen.
             </h2>
             <p className="text-muted-foreground">
-              Besuchen Sie uns in unserem Büro am Ostwall oder rufen Sie uns
-              einfach an. Wir nehmen uns Zeit für Sie.
+              Besuchen Sie uns am Ostwall oder rufen Sie uns an.
             </p>
             <div className="space-y-3 pt-2 text-sm">
               <div className="flex items-start gap-3">

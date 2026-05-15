@@ -6,7 +6,6 @@ import {
   CheckCircle2,
   ClipboardList,
   FileSignature,
-  Handshake,
   Home,
   KeyRound,
   LineChart,
@@ -15,8 +14,6 @@ import {
   MessageSquareQuote,
   Phone,
   PlayCircle,
-  ShieldCheck,
-  Sparkles,
   Star,
   Users,
 } from "lucide-react";
@@ -62,33 +59,6 @@ const services = [
       "Vermietungs- und Verkaufsberatung",
       "Werterhaltung Ihrer Immobilie",
     ],
-  },
-];
-
-const values = [
-  {
-    icon: ShieldCheck,
-    title: "Werterhaltung",
-    description:
-      "Wir denken langfristig: regelmäßige Instandhaltung schützt Ihre Immobilie und ihren Wert.",
-  },
-  {
-    icon: Sparkles,
-    title: "Kostengünstige Bewirtschaftung",
-    description:
-      "Enge Zusammenarbeit mit ortsansässigen Handwerksbetrieben — faire Preise, schnelle Wege.",
-  },
-  {
-    icon: Handshake,
-    title: "Vertrauen & Transparenz",
-    description:
-      "Klare Abrechnungen, persönliche Ansprechpartner und ehrliche Kommunikation.",
-  },
-  {
-    icon: Users,
-    title: "Gutes Miteinander",
-    description:
-      "Wir fördern ein gutes nachbarschaftliches Verhältnis — für ein angenehmes Wohnen.",
   },
 ];
 
@@ -181,9 +151,7 @@ export default function HomePage() {
               .
             </h1>
             <p className="max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-              Herzlich willkommen bei der Hausverwaltung Hürland in Dorsten —
-              Ihr zuverlässiger Partner, wenn es um die Verwaltung Ihrer
-              Immobilien in Dorsten und Umgebung geht.
+              Hausverwaltung in Dorsten und Umgebung — persönlich und vor Ort.
             </p>
             <div className="flex flex-wrap gap-3">
               <Button asChild size="lg" variant="accent">
@@ -289,8 +257,7 @@ export default function HomePage() {
             Ein rundes Leistungspaket für Ihre Immobilie
           </h2>
           <p className="mt-4 text-base leading-relaxed text-muted-foreground">
-            Ob Eigentümergemeinschaft, Mietshaus oder Sondereigentum — wir
-            betreuen Sie kompetent in allen Belangen Ihrer Immobilie.
+            Ob WEG, Mietshaus oder Sondereigentum — wir betreuen Ihre Immobilie.
           </p>
         </div>
 
@@ -336,40 +303,6 @@ export default function HomePage() {
         </Stagger>
       </Section>
 
-      {/* VALUES / TRUST */}
-      <Section className="bg-secondary/40">
-        <div className="grid gap-14 lg:grid-cols-12 lg:gap-12">
-          <div className="lg:col-span-5">
-            <Eyebrow>Unsere Leitgedanken</Eyebrow>
-            <h2 className="mt-4 font-serif text-2xl font-semibold tracking-tight sm:text-3xl lg:text-4xl">
-              Persönlich, transparent — und immer für Sie da.
-            </h2>
-            <p className="mt-5 text-base leading-relaxed text-muted-foreground">
-              Wir arbeiten eng mit ortsansässigen Handwerksbetrieben zusammen
-              und betreuen Eigentümergemeinschaften ebenso wie einzelne
-              Vermieter mit dem gleichen hohen Anspruch an Qualität und
-              Verlässlichkeit.
-            </p>
-          </div>
-          <Stagger className="grid gap-5 sm:grid-cols-2 lg:col-span-7">
-            {values.map((v) => (
-              <StaggerItem
-                key={v.title}
-                className="rounded-2xl border border-border bg-card p-6 shadow-sm transition-shadow hover:shadow-md"
-              >
-                <span className="mb-4 inline-grid h-10 w-10 place-items-center rounded-lg bg-secondary text-primary">
-                  <v.icon className="h-5 w-5" />
-                </span>
-                <h3 className="font-serif text-lg font-semibold">{v.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                  {v.description}
-                </p>
-              </StaggerItem>
-            ))}
-          </Stagger>
-        </div>
-      </Section>
-
       {/* STATS */}
       <Section className="py-12 sm:py-16 lg:py-20">
         <Stagger
@@ -397,8 +330,7 @@ export default function HomePage() {
             In fünf klaren Schritten zu Ihrer neuen Verwaltung.
           </h2>
           <p className="mt-4 text-base leading-relaxed text-muted-foreground">
-            Von der ersten Anfrage bis zur laufenden Betreuung — strukturiert,
-            transparent und ohne Überraschungen.
+            Strukturiert, transparent und ohne Überraschungen.
           </p>
         </div>
 
@@ -452,21 +384,18 @@ export default function HomePage() {
           <div className="space-y-6">
             <Eyebrow>Über uns</Eyebrow>
             <h2 className="font-serif text-2xl font-semibold tracking-tight sm:text-3xl lg:text-4xl">
-              Ein zuverlässiger Partner in allen Immobilien&shy;belangen.
+              An Ihrer Seite in allen Immobilien&shy;belangen.
             </h2>
             <div className="space-y-4 text-base leading-relaxed text-muted-foreground">
               <p>
-                Als seriöser und zuverlässiger Partner stehen wir Ihnen in allen
-                Belangen der professionellen Immobilienverwaltung zur Seite.
-                Unser Leistungsspektrum umfasst die{" "}
-                <strong className="text-foreground">Mietverwaltung</strong>, die{" "}
-                <strong className="text-foreground">WEG-Verwaltung</strong>{" "}
-                sowie die <strong className="text-foreground">Gewerbeverwaltung</strong>.
+                Wir übernehmen{" "}
+                <strong className="text-foreground">Mietverwaltung</strong>,{" "}
+                <strong className="text-foreground">WEG-Verwaltung</strong> und{" "}
+                <strong className="text-foreground">Gewerbeverwaltung</strong>.
               </p>
               <p>
-                Wir kennen Dorsten und Umgebung — und wir kennen die Menschen,
-                Handwerker und Behörden, die für eine reibungslose Verwaltung
-                wichtig sind. Das macht uns schnell, persönlich und effizient.
+                Wir kennen Dorsten — die Handwerker und Behörden, die zählen. Das
+                macht uns schnell und persönlich.
               </p>
             </div>
             <div className="grid gap-4 sm:grid-cols-2">
@@ -517,8 +446,7 @@ export default function HomePage() {
             Was unsere Eigentümer und Vermieter sagen.
           </h2>
           <p className="mt-4 text-base leading-relaxed text-muted-foreground">
-            Persönlich, zuverlässig und transparent — Vertrauen, das wir uns
-            jeden Tag aufs Neue verdienen.
+            Persönlich, zuverlässig, transparent.
           </p>
         </div>
 
@@ -564,9 +492,8 @@ export default function HomePage() {
                 Ihre Immobilie verdient eine Verwaltung, die mitdenkt.
               </h2>
               <p className="mt-4 max-w-lg text-base leading-relaxed text-primary-foreground/80">
-                Vereinbaren Sie ein unverbindliches Erstgespräch. Wir hören zu,
-                schauen uns Ihre Situation an und machen Ihnen ein faires
-                Angebot.
+                Vereinbaren Sie ein unverbindliches Erstgespräch — wir hören zu
+                und machen Ihnen ein faires Angebot.
               </p>
             </div>
             <div className="flex flex-col gap-3 sm:flex-row lg:justify-end">

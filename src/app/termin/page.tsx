@@ -39,7 +39,7 @@ export default function TerminPage() {
         ]}
         eyebrow="Persönliches Erstgespräch"
         title={<>Termin anfragen — wir hören zu.</>}
-        description="Sagen Sie uns einfach Ihren Wunschtermin und kurz, worum es geht. Wir bestätigen Ihnen Ihren Termin per E-Mail."
+        description="Wunschtermin angeben — wir bestätigen per E-Mail."
       />
 
       <Section>
@@ -52,8 +52,7 @@ export default function TerminPage() {
                 Ihr Wunschtermin in 60 Sekunden.
               </h2>
               <p className="mt-3 mb-8 text-sm text-muted-foreground">
-                Ihre Anfrage geht direkt in unser Termin-System. Wir antworten
-                schnellstmöglich.
+                Wir antworten schnellstmöglich.
               </p>
               <TerminForm />
             </CardContent>
