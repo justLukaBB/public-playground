@@ -28,8 +28,6 @@ export default function ImpressumPage() {
             <p>
               {siteConfig.company}
               <br />
-              {siteConfig.certification}
-              <br />
               Geschäftsführerin: {siteConfig.managingDirector}
               <br />
               {siteConfig.address.street}

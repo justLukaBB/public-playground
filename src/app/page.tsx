@@ -2,7 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowRight,
-  Award,
   Building2,
   CheckCircle2,
   ClipboardList,
@@ -32,7 +31,7 @@ const services = [
     icon: Building2,
     title: "WEG-Verwaltung",
     description:
-      "Professionelle Verwaltung Ihrer Wohnungseigentümergemeinschaft — bereits ab 2 Wohneinheiten.",
+      "Professionelle Verwaltung Ihrer Wohnungseigentümergemeinschaft.",
     href: "/weg-verwaltung",
     highlights: [
       "Jahresabrechnung & Wirtschaftsplan",
@@ -95,8 +94,6 @@ const values = [
 
 const stats = [
   { value: "15+", label: "Jahre Erfahrung in der Immobilienverwaltung" },
-  { value: "§26a", label: "Zertifizierter Verwalter nach WEG" },
-  { value: "ab 2", label: "Wohneinheiten verwalten wir" },
   { value: "100%", label: "Persönlicher Ansprechpartner" },
 ];
 
@@ -186,8 +183,7 @@ export default function HomePage() {
             <p className="max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
               Herzlich willkommen bei der Hausverwaltung Hürland in Dorsten —
               Ihr zuverlässiger Partner, wenn es um die Verwaltung Ihrer
-              Immobilien in Dorsten und Umgebung geht. Bei uns finden Sie:{" "}
-              <span className="font-medium text-foreground">{siteConfig.usp}</span>.
+              Immobilien in Dorsten und Umgebung geht.
             </p>
             <div className="flex flex-wrap gap-3">
               <Button asChild size="lg" variant="accent">
@@ -202,16 +198,8 @@ export default function HomePage() {
             </div>
             <div className="flex flex-wrap items-center gap-x-8 gap-y-3 pt-2 text-sm text-muted-foreground">
               <span className="inline-flex items-center gap-2">
-                <Award className="h-4 w-4 text-accent" />
-                Zertifiziert nach §26a WEG
-              </span>
-              <span className="inline-flex items-center gap-2">
                 <MapPin className="h-4 w-4 text-accent" />
                 In Dorsten verwurzelt
-              </span>
-              <span className="inline-flex items-center gap-2">
-                <CheckCircle2 className="h-4 w-4 text-accent" />
-                Ab 2 Wohneinheiten
               </span>
             </div>
           </div>
@@ -362,21 +350,6 @@ export default function HomePage() {
               Vermieter mit dem gleichen hohen Anspruch an Qualität und
               Verlässlichkeit.
             </p>
-            <div className="mt-8 inline-flex items-center gap-4 rounded-2xl bg-card p-5 ring-1 ring-border">
-              <Image
-                src="/siegel-26a-weg.svg"
-                alt="Siegel: Zertifiziert nach §26a WEG"
-                width={72}
-                height={72}
-                className="shrink-0"
-              />
-              <div>
-                <p className="text-sm font-semibold">Zertifizierte Verwalterin</p>
-                <p className="text-xs text-muted-foreground">
-                  Geprüft nach §26a Wohnungseigentumsgesetz
-                </p>
-              </div>
-            </div>
           </div>
           <Stagger className="grid gap-5 sm:grid-cols-2 lg:col-span-7">
             {values.map((v) => (
@@ -401,7 +374,7 @@ export default function HomePage() {
       <Section className="py-12 sm:py-16 lg:py-20">
         <Stagger
           stagger={0.1}
-          className="grid grid-cols-2 gap-6 rounded-3xl border border-border bg-card p-6 shadow-sm sm:p-10 md:grid-cols-4 md:gap-10"
+          className="mx-auto grid max-w-2xl grid-cols-2 justify-items-center gap-6 rounded-3xl border border-border bg-card p-6 shadow-sm sm:p-10 md:gap-10"
         >
           {stats.map((s) => (
             <StaggerItem key={s.label} className="text-center">

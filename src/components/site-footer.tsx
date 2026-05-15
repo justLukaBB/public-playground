@@ -14,9 +14,6 @@ export function SiteFooter() {
             Seriöser und zuverlässiger Partner in allen Belangen der
             professionellen Immobilienverwaltung in Dorsten und Umgebung.
           </p>
-          <p className="text-xs uppercase tracking-[0.18em] text-accent">
-            {siteConfig.certification}
-          </p>
         </div>
 
         <div className="space-y-4">

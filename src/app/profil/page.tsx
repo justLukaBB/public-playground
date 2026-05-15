@@ -2,7 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowRight,
-  Award,
   Building2,
   CheckCircle2,
   Handshake,
@@ -25,16 +24,6 @@ export const metadata = {
 };
 
 const competencies = [
-  {
-    icon: Award,
-    title: "Zertifizierte Verwaltung",
-    text: "Zertifizierter Verwalter nach §26a Wohnungseigentumsgesetz.",
-  },
-  {
-    icon: Building2,
-    title: "Kleine WEG ab 2 Einheiten",
-    text: "Auch kleine Wohnungseigentümergemeinschaften werden professionell betreut.",
-  },
   {
     icon: Handshake,
     title: "Lokale Handwerker",
@@ -62,8 +51,8 @@ export default function ProfilPage() {
           { label: "Profil" },
         ]}
         eyebrow="Über uns"
-        title={<>Ein seriöser, zuverlässiger Partner — mitten in Dorsten.</>}
-        description="Wir sind die Hürland-Scuric Immobilien GmbH: Ihre Hausverwaltung mit individuellem und persönlichem Service. Persönlich, transparent und mit echter Verwurzelung in der Region."
+        title={<>Mitten in Dorsten.</>}
+        description="Wir sind die Hürland-Scuric Immobilien GmbH: Ihre Hausverwaltung mit individuellem und persönlichem Service. Persönlich und transparent."
       />
 
       {/* Intro */}
@@ -81,7 +70,7 @@ export default function ProfilPage() {
           <div className="space-y-6">
             <Eyebrow>Wer wir sind</Eyebrow>
             <h2 className="font-serif text-2xl font-semibold tracking-tight sm:text-3xl lg:text-4xl">
-              Ihre Hausverwaltung mit Herz für Dorsten.
+              Ihre Hausverwaltung in Dorsten.
             </h2>
             <div className="space-y-4 text-base leading-relaxed text-muted-foreground">
               <p>
@@ -126,49 +115,6 @@ export default function ProfilPage() {
         </div>
       </Section>
 
-      {/* Zertifikat */}
-      <Section className="bg-secondary/40">
-        <div className="grid items-center gap-10 lg:grid-cols-[auto,1fr] lg:gap-16">
-          <div className="flex justify-center lg:justify-start">
-            <Image
-              src="/siegel-26a-weg.svg"
-              alt="Siegel: Zertifiziert nach §26a WEG"
-              width={200}
-              height={200}
-              className="drop-shadow-md"
-            />
-          </div>
-          <div>
-            <Eyebrow>Zertifikat</Eyebrow>
-            <h2 className="mt-4 font-serif text-2xl font-semibold tracking-tight sm:text-3xl lg:text-4xl">
-              Geprüft & zertifiziert nach §26a WEG.
-            </h2>
-            <p className="mt-4 leading-relaxed text-muted-foreground">
-              Birgit Hürland hat die Prüfung zur zertifizierten Verwalterin
-              gemäß §26a Wohnungseigentumsgesetz erfolgreich abgelegt. Damit
-              erfüllt unsere Verwaltung die seit Dezember 2023 geltenden
-              gesetzlichen Anforderungen für eine ordnungsmäßige Verwaltung von
-              Wohnungseigentum.
-            </p>
-            <ul className="mt-5 space-y-2 text-sm text-foreground/85">
-              <li className="flex items-start gap-2">
-                <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
-                Nachgewiesene rechtliche, kaufmännische und technische
-                Kompetenz
-              </li>
-              <li className="flex items-start gap-2">
-                <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
-                Regelmäßige Fortbildung (20 Stunden in 3 Jahren)
-              </li>
-              <li className="flex items-start gap-2">
-                <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
-                Rechtskonform für jede Eigentümergemeinschaft
-              </li>
-            </ul>
-          </div>
-        </div>
-      </Section>
-
       {/* Kernkompetenzen */}
       <Section>
         <div className="mx-auto max-w-2xl text-center">
@@ -177,7 +123,7 @@ export default function ProfilPage() {
             Worauf Sie sich verlassen können.
           </h2>
         </div>
-        <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mx-auto mt-14 grid max-w-2xl gap-5 sm:grid-cols-2">
           {competencies.map((c) => (
             <div
               key={c.title}

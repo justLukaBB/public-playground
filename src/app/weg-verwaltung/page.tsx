@@ -2,8 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowRight,
-  Award,
-  BadgeCheck,
   CalendarClock,
   ClipboardList,
   FileCheck2,
@@ -28,7 +26,7 @@ import { siteConfig } from "@/lib/site";
 export const metadata = {
   title: "WEG-Verwaltung",
   description:
-    "Zertifizierte Verwaltung Ihrer Wohnungseigentümergemeinschaft in Dorsten — schon ab 2 Einheiten. Jahresabrechnung, Versammlungen, Belegprüfung.",
+    "Verwaltung Ihrer Wohnungseigentümergemeinschaft in Dorsten — Jahresabrechnung, Versammlungen, Belegprüfung.",
 };
 
 const services = [
@@ -96,12 +94,6 @@ const services = [
     title: "Hausordnung",
     description: "Festlegung und Pflege einer fairen, klar formulierten Hausordnung.",
   },
-  {
-    icon: BadgeCheck,
-    title: "Kleine Gemeinschaften",
-    description:
-      "Wir verwalten auch kleine WEG ab 2 Wohneinheiten und Teileigentum.",
-  },
 ];
 
 const principles = [
@@ -131,7 +123,7 @@ export default function WegVerwaltungPage() {
           { label: "WEG-Verwaltung" },
         ]}
         eyebrow="Für Eigentümergemeinschaften"
-        title={<>WEG-Verwaltung mit Weitblick.</>}
+        title={<>WEG-Verwaltung in Dorsten.</>}
         description="Um Ihnen den bestmöglichen Service für Ihr Eigentum zu gewährleisten, bieten wir ein breites Leistungsspektrum — von der Jahresabrechnung über die Eigentümerversammlung bis zur Schadensregulierung."
       />
 
@@ -149,27 +141,10 @@ export default function WegVerwaltungPage() {
                 />
               </div>
               <div className="rounded-2xl border border-border bg-card p-6 shadow-sm">
-                <div className="flex items-center gap-3">
-                  <span className="grid h-10 w-10 place-items-center rounded-full bg-accent text-accent-foreground">
-                    <Award className="h-5 w-5" />
-                  </span>
-                  <div>
-                    <p className="text-sm font-semibold">
-                      Zertifizierte Verwalterin
-                    </p>
-                    <p className="text-xs text-muted-foreground">
-                      §26a Wohnungseigentumsgesetz
-                    </p>
-                  </div>
-                </div>
-                <div className="mt-5 space-y-2 text-sm">
+                <div className="space-y-2 text-sm">
                   <div className="flex items-center gap-2 text-foreground/85">
                     <CalendarClock className="h-4 w-4 text-accent" />
                     Vertragslaufzeiten ab 12 Monaten
-                  </div>
-                  <div className="flex items-center gap-2 text-foreground/85">
-                    <BadgeCheck className="h-4 w-4 text-accent" />
-                    Verwaltung kleiner WEG ab 2 Einheiten
                   </div>
                   <div className="flex items-center gap-2 text-foreground/85">
                     <Scale className="h-4 w-4 text-accent" />
@@ -188,11 +163,6 @@ export default function WegVerwaltungPage() {
             <h2 className="mt-4 font-serif text-2xl font-semibold tracking-tight sm:text-3xl lg:text-4xl">
               Das breite Leistungsspektrum unserer WEG-Verwaltung.
             </h2>
-            <p className="mt-4 text-muted-foreground">
-              Wir betreuen Wohnungseigentümergemeinschaften umfassend —
-              kaufmännisch, technisch und rechtlich. Klare Strukturen und ein
-              persönlicher Ansprechpartner machen den Unterschied.
-            </p>
 
             <div className="mt-10 grid gap-4 sm:grid-cols-2">
               {services.map((s) => (

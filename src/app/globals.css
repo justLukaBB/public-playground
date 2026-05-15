@@ -91,7 +91,7 @@
   --color-chart-5: var(--chart-5);
 
   --font-sans: var(--font-geist-sans);
-  --font-serif: var(--font-fraunces);
+  --font-serif: var(--font-display);
   --font-mono: var(--font-geist-mono);
 
   --radius-sm: calc(var(--radius) - 4px);
@@ -115,8 +115,9 @@
     -webkit-font-smoothing: antialiased;
   }
   h1, h2, h3, h4 {
-    font-family: var(--font-fraunces), ui-serif, Georgia, serif;
-    letter-spacing: -0.015em;
+    font-family: var(--font-display), ui-sans-serif, system-ui, sans-serif;
+    letter-spacing: -0.02em;
+    font-weight: 700;
   }
   ::selection {
     background-color: var(--accent);

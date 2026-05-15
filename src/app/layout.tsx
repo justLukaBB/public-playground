@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Fraunces } from "next/font/google";
+import { Geist, Geist_Mono, Manrope } from "next/font/google";
 import "./globals.css";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
@@ -16,8 +16,8 @@ const geistMono = Geist_Mono({
   display: "swap",
 });
 
-const fraunces = Fraunces({
-  variable: "--font-fraunces",
+const manrope = Manrope({
+  variable: "--font-display",
   subsets: ["latin"],
   display: "swap",
 });
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     template: "%s · Hürland Hausverwaltung Dorsten",
   },
   description:
-    "Ihre Hausverwaltung mit individuellem und persönlichem Service in Dorsten. WEG-Verwaltung, Mietverwaltung und Sondereigentumsverwaltung – zertifiziert nach §26a WEG.",
+    "Ihre Hausverwaltung mit individuellem und persönlichem Service in Dorsten. WEG-Verwaltung, Mietverwaltung und Sondereigentumsverwaltung.",
   keywords: [
     "Hausverwaltung Dorsten",
     "WEG-Verwaltung",
@@ -49,7 +49,7 @@ export default function RootLayout({
   return (
     <html
       lang="de"
-      className={`${geistSans.variable} ${geistMono.variable} ${fraunces.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} ${manrope.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-background text-foreground">
         <SiteHeader />

@@ -1,9 +1,17 @@
+import Image from "next/image";
 import { Clock, Mail, MapPin, Phone, Printer, Smartphone } from "lucide-react";
 import { Section, Eyebrow } from "@/components/section";
 import { PageHero } from "@/components/page-hero";
 import { ContactForm } from "@/components/contact-form";
 import { Card, CardContent } from "@/components/ui/card";
 import { siteConfig } from "@/lib/site";
+
+type TeamMember = {
+  name: string;
+  role: string;
+  bio: string;
+  image?: string;
+};
 
 export const metadata = {
   title: "Kontakt",
@@ -37,20 +45,18 @@ const contactItems = [
   },
 ];
 
-const team = [
+const team: TeamMember[] = [
   {
     name: "Birgit Hürland",
     role: "Geschäftsführerin",
-    email: siteConfig.email,
-    phone: siteConfig.phone,
-    phoneLink: siteConfig.phoneLink,
+    image: "/team/birgit-huerland.jpg",
+    bio: "Im Mittelpunkt unserer Arbeit steht die strukturierte, zuverlässige und zugleich persönliche Betreuung der Immobilien. In der Verwaltung von Wohnungseigentümergemeinschaften (WEG) und Mietobjekten sorgen wir für klare Abläufe, rechtssichere Entscheidungen, Transparenz und eine nachhaltige Entwicklung der betreuten Objekte.",
   },
   {
     name: "Ruth Keller",
-    role: "Partnerin · Hausverwaltung",
-    email: siteConfig.email,
-    phone: siteConfig.phone,
-    phoneLink: siteConfig.phoneLink,
+    role: "Kaufmännische Bürokraft",
+    image: "/team/ruth-keller.jpg",
+    bio: "Bei der Hausverwaltung Hürland unterstütze ich unsere Kunden in Dorsten und Umgebung mit Engagement und Fachkompetenz. Mein Ziel ist eine zuverlässige und persönliche Betreuung, damit Ihre Immobilie bei uns jederzeit in den besten Händen ist.",
   },
 ];
 
@@ -81,38 +87,46 @@ export default function KontaktPage() {
         </div>
 
         <div className="mx-auto mt-12 grid max-w-3xl gap-6 sm:grid-cols-2">
-          {team.map((person) => (
-            <Card
-              key={person.name}
-              interactive
-              className="overflow-hidden border-border/60 shadow-sm"
-            >
-              <CardContent className="space-y-3 p-6">
-                <div>
-                  <h3 className="font-serif text-xl font-semibold leading-tight">
+          {team.map((person) => {
+            const initials = person.name
+              .split(" ")
+              .map((part) => part[0])
+              .join("");
+            return (
+              <Card
+                key={person.name}
+                interactive
+                className="overflow-hidden border-border/60 shadow-sm"
+              >
+                <CardContent className="flex flex-col items-center p-8 text-center">
+                  <div className="relative h-28 w-28 overflow-hidden rounded-full bg-accent/10 ring-1 ring-border">
+                    {person.image ? (
+                      <Image
+                        src={person.image}
+                        alt={`Porträt von ${person.name}`}
+                        fill
+                        sizes="112px"
+                        className="object-cover"
+                      />
+                    ) : (
+                      <span className="absolute inset-0 grid place-items-center font-serif text-2xl font-semibold text-accent">
+                        {initials}
+                      </span>
+                    )}
+                  </div>
+                  <h3 className="mt-5 font-serif text-xl font-semibold leading-tight">
                     {person.name}
                   </h3>
-                  <p className="mt-1 text-sm text-accent">{person.role}</p>
-                </div>
-                <div className="space-y-2 pt-2 text-sm">
-                  <a
-                    href={`tel:${person.phoneLink}`}
-                    className="flex items-center gap-2 text-foreground hover:text-accent"
-                  >
-                    <Phone className="h-4 w-4 text-accent" />
-                    {person.phone}
-                  </a>
-                  <a
-                    href={`mailto:${person.email}`}
-                    className="flex items-center gap-2 break-all text-foreground hover:text-accent"
-                  >
-                    <Mail className="h-4 w-4 text-accent" />
-                    {person.email}
-                  </a>
-                </div>
-              </CardContent>
-            </Card>
-          ))}
+                  <p className="mt-1 text-sm font-medium text-accent">
+                    {person.role}
+                  </p>
+                  <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
+                    {person.bio}
+                  </p>
+                </CardContent>
+              </Card>
+            );
+          })}
         </div>
       </Section>
 
