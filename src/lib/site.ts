@@ -15,7 +15,7 @@ export const siteConfig = {
   mobileLink: "+491635104073",
   fax: "02362/9930551",
   email: "info@huerland-hausverwaltung.de",
-  hours: "Mo.–Fr. 9:00 – 12:00 Uhr",
+  hours: "Mo.–Fr. 9:00 – 16:00 Uhr",
   values: ["Kundennähe", "Kompetenz", "Flexibilität", "Transparenz"],
   founded: "Hürland-Scuric Immobilien GmbH",
   managingDirector: "Birgit Hürland",
@@ -35,9 +35,8 @@ export const siteConfig = {
 
 export const nav = [
   { label: "Startseite", href: "/" },
-  { label: "Mietverwaltung", href: "/mietverwaltung" },
   { label: "WEG-Verwaltung", href: "/weg-verwaltung" },
-  { label: "Profil", href: "/profil" },
+  { label: "Mietverwaltung", href: "/mietverwaltung" },
   { label: "Termin", href: "/termin" },
   { label: "Kontakt", href: "/kontakt" },
 ];

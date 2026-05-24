@@ -33,7 +33,7 @@ export function SiteHeader() {
       <div className="mx-auto flex h-20 max-w-6xl items-center justify-between px-4 sm:px-6 lg:px-8">
         <Logo />
 
-        <nav className="hidden items-center gap-1 md:flex" aria-label="Hauptnavigation">
+        <nav className="hidden items-center gap-1 lg:flex" aria-label="Hauptnavigation">
           {nav.map((item) => {
             const active =
               item.href === "/"
@@ -56,7 +56,7 @@ export function SiteHeader() {
           })}
         </nav>
 
-        <div className="hidden items-center gap-2 md:flex">
+        <div className="hidden items-center gap-2 lg:flex">
           <Button
             variant="ghost"
             size="icon"
@@ -74,16 +74,29 @@ export function SiteHeader() {
           </Button>
         </div>
 
-        <div className="flex items-center gap-2 md:hidden">
+        <div className="flex items-center gap-2 lg:hidden">
           <Sheet>
             <SheetTrigger asChild>
-              <Button variant="outline" size="icon" aria-label="Menü öffnen">
+              <Button
+                variant="ghost"
+                size="icon"
+                aria-label="Menü öffnen"
+                className="rounded-full"
+              >
                 <Menu className="h-5 w-5" />
               </Button>
             </SheetTrigger>
-            <SheetContent side="right" className="flex flex-col gap-8">
-              <Logo small />
-              <nav className="flex flex-col gap-1" aria-label="Mobile Navigation">
+            <SheetContent
+              side="right"
+              className="flex w-[82%] max-w-md flex-col gap-0 border-l-0 bg-background p-0 shadow-2xl"
+            >
+              <div className="flex items-center justify-between px-6 pt-6 pb-10">
+                <Logo small />
+              </div>
+              <nav
+                className="flex flex-col px-3"
+                aria-label="Mobile Navigation"
+              >
                 {nav.map((item) => {
                   const active =
                     item.href === "/"
@@ -94,32 +107,42 @@ export function SiteHeader() {
                       <Link
                         href={item.href}
                         className={cn(
-                          "tap-press transform-gpu rounded-lg px-4 py-3 text-base font-medium transition-colors",
+                          "flex items-center justify-between rounded-xl px-4 py-4 text-xl font-medium tracking-tight transition-colors",
                           active
-                            ? "bg-secondary text-primary"
-                            : "text-foreground hover:bg-secondary"
+                            ? "text-accent"
+                            : "text-muted-foreground hover:text-foreground"
                         )}
                       >
-                        {item.label}
+                        <span>{item.label}</span>
+                        {active && (
+                          <span
+                            aria-hidden
+                            className="h-1.5 w-1.5 rounded-full bg-accent"
+                          />
+                        )}
                       </Link>
                     </SheetClose>
                   );
                 })}
               </nav>
-              <div className="mt-auto flex flex-col gap-3 rounded-2xl bg-secondary/50 p-5 text-sm">
-                <a
-                  href={`tel:${siteConfig.phoneLink}`}
-                  className="flex items-center gap-2 font-medium text-foreground"
-                >
-                  <Phone className="h-4 w-4 text-accent" />
-                  {siteConfig.phone}
-                </a>
-                <span className="text-muted-foreground">{siteConfig.hours}</span>
+              <div className="mt-auto space-y-4 border-t border-border/60 px-6 py-6">
                 <SheetClose asChild>
-                  <Button asChild className="mt-2 w-full" variant="accent">
+                  <Button asChild size="lg" variant="accent" className="w-full">
                     <Link href="/termin">Termin anfragen</Link>
                   </Button>
                 </SheetClose>
+                <div className="flex items-center justify-between text-sm">
+                  <a
+                    href={`tel:${siteConfig.phoneLink}`}
+                    className="inline-flex items-center gap-2 font-medium text-foreground"
+                  >
+                    <Phone className="h-4 w-4 text-accent" />
+                    {siteConfig.phone}
+                  </a>
+                  <span className="text-muted-foreground">
+                    {siteConfig.hours}
+                  </span>
+                </div>
               </div>
             </SheetContent>
           </Sheet>

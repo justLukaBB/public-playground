@@ -1,92 +1,111 @@
 import Link from "next/link";
-import { Mail, MapPin, Phone, Clock } from "lucide-react";
 import { Logo } from "@/components/logo";
-import { Separator } from "@/components/ui/separator";
 import { nav, siteConfig } from "@/lib/site";
+
+const navPrimary = nav.slice(0, 3);
+const navSecondary = nav.slice(3);
 
 export function SiteFooter() {
   return (
-    <footer className="mt-24 border-t border-border bg-secondary/40">
-      <div className="mx-auto grid max-w-6xl gap-12 px-4 py-16 sm:px-6 lg:grid-cols-4 lg:gap-8 lg:px-8">
-        <div className="space-y-4 lg:col-span-2">
-          <Logo />
-          <p className="max-w-md text-sm leading-relaxed text-muted-foreground">
-            Professionelle Immobilienverwaltung in Dorsten und Umgebung.
-          </p>
-        </div>
+    <footer className="mt-24 border-t border-border/70 bg-secondary">
+      <div className="mx-auto max-w-6xl px-4 pt-12 pb-8 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-4 gap-x-4 gap-y-10 sm:gap-x-6 lg:grid-cols-12 lg:gap-x-8">
+          <div className="col-span-4 lg:col-span-4 lg:pr-8">
+            <Logo />
+            <p className="mt-3 max-w-xs text-[13px] leading-relaxed text-muted-foreground">
+              Professionelle Immobilienverwaltung in Dorsten und Umgebung.
+            </p>
+          </div>
 
-        <div className="space-y-4">
-          <h3 className="text-sm font-semibold uppercase tracking-wider text-foreground">
-            Navigation
-          </h3>
-          <ul className="space-y-2 text-sm">
-            {nav.map((item) => (
-              <li key={item.href}>
-                <Link
-                  href={item.href}
-                  className="text-muted-foreground transition-colors hover:text-foreground"
-                >
-                  {item.label}
-                </Link>
-              </li>
+          <FooterColumn title="Leistungen">
+            {navPrimary.map((item) => (
+              <FooterLink key={item.href} href={item.href}>
+                {item.label}
+              </FooterLink>
             ))}
-          </ul>
-        </div>
+          </FooterColumn>
 
-        <div className="space-y-4">
-          <h3 className="text-sm font-semibold uppercase tracking-wider text-foreground">
-            Kontakt
-          </h3>
-          <ul className="space-y-3 text-sm text-muted-foreground">
-            <li className="flex gap-3">
-              <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
-              <span>
-                {siteConfig.address.street}
-                <br />
-                {siteConfig.address.zip} {siteConfig.address.city}
-              </span>
+          <FooterColumn title="Unternehmen">
+            {navSecondary.map((item) => (
+              <FooterLink key={item.href} href={item.href}>
+                {item.label}
+              </FooterLink>
+            ))}
+          </FooterColumn>
+
+          <FooterColumn title="Kontakt">
+            <li className="text-[12px] leading-relaxed text-muted-foreground">
+              {siteConfig.address.street}
+              <br />
+              {siteConfig.address.zip} {siteConfig.address.city}
             </li>
             <li>
               <a
                 href={`tel:${siteConfig.phoneLink}`}
-                className="flex items-center gap-3 hover:text-foreground"
+                className="break-words text-[12px] text-muted-foreground transition-colors hover:text-foreground"
               >
-                <Phone className="h-4 w-4 text-accent" />
                 {siteConfig.phone}
               </a>
             </li>
             <li>
               <a
                 href={`mailto:${siteConfig.email}`}
-                className="flex items-center gap-3 hover:text-foreground"
+                className="break-words text-[12px] text-muted-foreground transition-colors hover:text-foreground"
               >
-                <Mail className="h-4 w-4 text-accent" />
                 {siteConfig.email}
               </a>
             </li>
-            <li className="flex items-center gap-3">
-              <Clock className="h-4 w-4 text-accent" />
+            <li className="text-[12px] text-muted-foreground">
               {siteConfig.hours}
             </li>
-          </ul>
+          </FooterColumn>
+
+          <FooterColumn title="Rechtliches">
+            <FooterLink href="/impressum">Impressum</FooterLink>
+            <FooterLink href="/datenschutz">Datenschutz</FooterLink>
+          </FooterColumn>
         </div>
-      </div>
 
-      <Separator />
-
-      <div className="mx-auto flex max-w-6xl flex-col gap-3 px-4 py-6 text-xs text-muted-foreground sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8">
-        <p>
+        <div className="mt-10 border-t border-border/60 pt-5 text-[11px] text-muted-foreground">
           © {new Date().getFullYear()} {siteConfig.company}. Alle Rechte vorbehalten.
-        </p>
-        <div className="flex gap-4">
-          <Link href="/impressum" className="hover:text-foreground">
-            Impressum
-          </Link>
-          <Link href="/datenschutz" className="hover:text-foreground">
-            Datenschutz
-          </Link>
         </div>
       </div>
     </footer>
+  );
+}
+
+function FooterColumn({
+  title,
+  children,
+}: {
+  title: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <div className="lg:col-span-2">
+      <h3 className="text-[11px] font-semibold uppercase tracking-[0.08em] text-foreground/80">
+        {title}
+      </h3>
+      <ul className="mt-3 space-y-2">{children}</ul>
+    </div>
+  );
+}
+
+function FooterLink({
+  href,
+  children,
+}: {
+  href: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <li>
+      <Link
+        href={href}
+        className="text-[12px] text-muted-foreground transition-colors hover:text-foreground"
+      >
+        {children}
+      </Link>
+    </li>
   );
 }

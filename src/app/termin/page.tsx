@@ -38,8 +38,7 @@ export default function TerminPage() {
           { label: "Termin anfragen" },
         ]}
         eyebrow="Persönliches Erstgespräch"
-        title={<>Termin anfragen — wir hören zu.</>}
-        description="Wunschtermin angeben — wir bestätigen per E-Mail."
+        title={<>Termin anfragen.</>}
       />
 
       <Section>

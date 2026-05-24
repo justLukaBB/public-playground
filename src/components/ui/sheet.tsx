@@ -54,7 +54,7 @@ const SheetContent = React.forwardRef<
     >
       <DialogPrimitive.Title className="sr-only">Menü</DialogPrimitive.Title>
       {children}
-      <DialogPrimitive.Close className="absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none">
+      <DialogPrimitive.Close className="absolute right-5 top-5 grid h-10 w-10 place-items-center rounded-full border border-accent/40 text-foreground/70 transition-colors hover:border-accent hover:text-foreground focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/40 focus-visible:ring-offset-2 disabled:pointer-events-none">
         <X className="h-5 w-5" />
         <span className="sr-only">Schließen</span>
       </DialogPrimitive.Close>

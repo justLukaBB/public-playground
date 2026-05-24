@@ -11,6 +11,8 @@ type TeamMember = {
   role: string;
   bio: string;
   image?: string;
+  credential?: string;
+  qualifications?: string[];
 };
 
 export const metadata = {
@@ -49,6 +51,8 @@ const team: TeamMember[] = [
   {
     name: "Birgit Hürland",
     role: "Geschäftsführerin",
+    credential: "Zertifizierte Verwalterin nach § 26a WEG",
+    qualifications: ["Immobilienkauffrau (IHK)", "Immobilienberaterin (IHK)"],
     image: "/team/birgit-huerland.jpg",
     bio: "Im Mittelpunkt unserer Arbeit steht die strukturierte, zuverlässige und zugleich persönliche Betreuung der Immobilien. In der Verwaltung von Wohnungseigentümergemeinschaften (WEG) und Mietobjekten sorgen wir für klare Abläufe, rechtssichere Entscheidungen, Transparenz und eine nachhaltige Entwicklung der betreuten Objekte.",
   },
@@ -70,7 +74,6 @@ export default function KontaktPage() {
         ]}
         eyebrow="Schreiben Sie uns"
         title={<>Wir freuen uns auf Ihre Nachricht.</>}
-        description="Erstgespräch, Wechsel oder Frage — wir melden uns zügig."
       />
 
       {/* Team / Ansprechpartnerinnen */}
@@ -80,9 +83,6 @@ export default function KontaktPage() {
           <h2 className="mt-4 font-serif text-2xl font-semibold tracking-tight sm:text-3xl lg:text-4xl">
             Persönlich für Sie da.
           </h2>
-          <p className="mt-4 text-base leading-relaxed text-muted-foreground">
-            Direkt mit den Menschen, die Ihre Immobilie betreuen.
-          </p>
         </div>
 
         <div className="mx-auto mt-12 grid max-w-3xl gap-6 sm:grid-cols-2">
@@ -119,6 +119,21 @@ export default function KontaktPage() {
                   <p className="mt-1 text-sm font-medium text-accent">
                     {person.role}
                   </p>
+                  {person.credential ? (
+                    <p className="mt-1 text-sm font-medium text-accent">
+                      {person.credential}
+                    </p>
+                  ) : null}
+                  {person.qualifications ? (
+                    <div className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                      <p className="font-semibold text-foreground">
+                        Qualifikation:
+                      </p>
+                      {person.qualifications.map((q) => (
+                        <p key={q}>{q}</p>
+                      ))}
+                    </div>
+                  ) : null}
                   <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
                     {person.bio}
                   </p>

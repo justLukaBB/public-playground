@@ -209,6 +209,29 @@
         drop-shadow(0 0 6px oklch(0.88 0.18 85 / 0.75));
     }
   }
+  /* Radix Accordion auf-/zuklappen */
+  .animate-accordion-down {
+    animation: accordion-down 280ms var(--ease-ios);
+  }
+  .animate-accordion-up {
+    animation: accordion-up 220ms var(--ease-ios);
+  }
+  @keyframes accordion-down {
+    from {
+      height: 0;
+    }
+    to {
+      height: var(--radix-accordion-content-height);
+    }
+  }
+  @keyframes accordion-up {
+    from {
+      height: var(--radix-accordion-content-height);
+    }
+    to {
+      height: 0;
+    }
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

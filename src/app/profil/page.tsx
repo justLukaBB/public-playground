@@ -4,13 +4,10 @@ import {
   ArrowRight,
   Building2,
   CheckCircle2,
-  Handshake,
   Heart,
   KeyRound,
   MapPin,
   Phone,
-  ShieldCheck,
-  Sparkles,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Section, Eyebrow } from "@/components/section";
@@ -23,23 +20,9 @@ export const metadata = {
     "Lernen Sie die Hürland-Scuric Immobilien GmbH kennen — Ihre Hausverwaltung in Dorsten.",
 };
 
-const competencies = [
-  {
-    icon: Handshake,
-    title: "Lokale Handwerker",
-    text: "Enge Zusammenarbeit mit ortsansässigen Handwerksbetrieben.",
-  },
-  {
-    icon: ShieldCheck,
-    title: "Transparente Abrechnungen",
-    text: "Klar gegliederte Jahres- und Betriebskostenabrechnungen.",
-  },
-];
-
 const offerings = [
-  { title: "Mietverwaltung", icon: KeyRound },
   { title: "WEG-Verwaltung", icon: Building2 },
-  { title: "Gewerbeverwaltung", icon: Sparkles },
+  { title: "Mietverwaltung", icon: KeyRound },
 ];
 
 export default function ProfilPage() {
@@ -52,13 +35,12 @@ export default function ProfilPage() {
         ]}
         eyebrow="Über uns"
         title={<>Mitten in Dorsten.</>}
-        description="Hürland-Scuric Immobilien GmbH — Hausverwaltung mit persönlichem Service."
       />
 
       {/* Intro */}
       <Section>
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
-          <div className="relative aspect-[4/5] overflow-hidden rounded-3xl shadow-lg ring-1 ring-border">
+          <div className="relative hidden aspect-[4/5] overflow-hidden rounded-3xl shadow-lg ring-1 ring-border lg:block">
             <Image
               src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80"
               alt="Büro mit warmem Licht"
@@ -74,8 +56,7 @@ export default function ProfilPage() {
             </h2>
             <div className="space-y-4 text-base leading-relaxed text-muted-foreground">
               <p>
-                Wir übernehmen Mietverwaltung, WEG-Verwaltung und
-                Gewerbeverwaltung.
+                Wir übernehmen WEG-Verwaltung und Mietverwaltung.
               </p>
               <p>
                 Bei Instandhaltung und Reparaturen arbeiten wir mit
@@ -109,32 +90,6 @@ export default function ProfilPage() {
               ))}
             </div>
           </div>
-        </div>
-      </Section>
-
-      {/* Kernkompetenzen */}
-      <Section>
-        <div className="mx-auto max-w-2xl text-center">
-          <Eyebrow className="justify-center">Kernkompetenzen</Eyebrow>
-          <h2 className="mt-4 font-serif text-2xl font-semibold tracking-tight sm:text-3xl lg:text-4xl">
-            Worauf Sie sich verlassen können.
-          </h2>
-        </div>
-        <div className="mx-auto mt-14 grid max-w-2xl gap-5 sm:grid-cols-2">
-          {competencies.map((c) => (
-            <div
-              key={c.title}
-              className="rounded-2xl border border-border bg-card p-6 shadow-sm transition-shadow hover:shadow-md"
-            >
-              <span className="grid h-11 w-11 place-items-center rounded-xl bg-accent/15 text-accent">
-                <c.icon className="h-5 w-5" />
-              </span>
-              <h3 className="mt-4 font-serif text-lg font-semibold">{c.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                {c.text}
-              </p>
-            </div>
-          ))}
         </div>
       </Section>
 

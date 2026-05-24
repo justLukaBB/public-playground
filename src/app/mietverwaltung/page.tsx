@@ -4,11 +4,9 @@ import {
   ArrowRight,
   Banknote,
   BellRing,
-  Building2,
   Calculator,
   CheckCircle2,
   ClipboardCheck,
-  Eye,
   FileSearch,
   Flame,
   Handshake,
@@ -18,7 +16,6 @@ import {
   MailCheck,
   Phone,
   Receipt,
-  RefreshCw,
   Scale,
   ScrollText,
   ShieldCheck,
@@ -27,6 +24,12 @@ import {
   Wrench,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 import { Section, Eyebrow } from "@/components/section";
 import { PageHero } from "@/components/page-hero";
 import { siteConfig } from "@/lib/site";
@@ -46,11 +49,6 @@ const groups = [
         icon: Receipt,
         title: "Betriebskostenabrechnung",
         text: "Gegenüberstellung von Einnahmen und Ausgaben mit klaren Einzelpositionen.",
-      },
-      {
-        icon: RefreshCw,
-        title: "Zwischenabrechnungen",
-        text: "Saubere Abrechnungen bei Mieterwechseln — fair für beide Seiten.",
       },
       {
         icon: ScrollText,
@@ -115,11 +113,6 @@ const groups = [
         title: "Hausmeister & Pflege",
         text: "Steuerung von Hausmeister-, Reinigungs- und Gärtnerdiensten.",
       },
-      {
-        icon: Eye,
-        title: "Gebäudezustandsüberwachung",
-        text: "Regelmäßige Kontrolle des baulichen Zustands Ihrer Immobilie.",
-      },
     ],
   },
   {
@@ -130,11 +123,6 @@ const groups = [
         icon: Scale,
         title: "Hausordnung",
         text: "Festlegung und Überwachung einer klar formulierten Hausordnung.",
-      },
-      {
-        icon: Building2,
-        title: "Gewerbeverwaltung",
-        text: "Auch für Gewerbeobjekte: kaufmännische und technische Betreuung.",
       },
     ],
   },
@@ -171,7 +159,6 @@ export default function MietverwaltungPage() {
         ]}
         eyebrow="Für Vermieter & Gewerbetreibende"
         title={<>Mietverwaltung, die Ihnen Arbeit abnimmt.</>}
-        description="Komplette Betreuung Ihrer Miet- und Gewerbeobjekte — kaufmännisch, technisch und persönlich."
       />
 
       {/* Highlight Vermietung */}
@@ -182,10 +169,6 @@ export default function MietverwaltungPage() {
             <h2 className="font-serif text-2xl font-semibold tracking-tight sm:text-3xl lg:text-4xl">
               Von der Mietersuche bis zur Übergabe — alles aus einer Hand.
             </h2>
-            <p className="text-base leading-relaxed text-muted-foreground">
-              Von der Mietersuche bis zur Schlüsselübergabe — Sie müssen sich um
-              nichts kümmern.
-            </p>
             <ul className="grid gap-3 sm:grid-cols-2">
               {[
                 "Inserate auf passenden Plattformen",
@@ -218,7 +201,7 @@ export default function MietverwaltungPage() {
               </Button>
             </div>
           </div>
-          <div className="relative aspect-[4/5] overflow-hidden rounded-3xl shadow-lg ring-1 ring-border">
+          <div className="relative hidden aspect-[4/5] overflow-hidden rounded-3xl shadow-lg ring-1 ring-border lg:block">
             <Image
               src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1200&q=80"
               alt="Modernes Wohnzimmer"
@@ -245,43 +228,45 @@ export default function MietverwaltungPage() {
           <h2 className="mt-4 font-serif text-2xl font-semibold tracking-tight sm:text-3xl lg:text-4xl">
             Umfassende Betreuung in sechs Bereichen.
           </h2>
-          <p className="mt-4 text-muted-foreground">
-            Ob Wohnen oder Gewerbe — wir kümmern uns um alles.
-          </p>
         </div>
 
-        <div className="mt-14 space-y-10">
+        <Accordion type="multiple" className="mx-auto mt-14 max-w-5xl">
           {groups.map((group) => (
-            <div
+            <AccordionItem
               key={group.title}
-              className="rounded-3xl border border-border bg-card p-8 shadow-sm"
+              value={group.title}
+              className="border-b border-border/60"
             >
-              <div className="flex items-center gap-4 border-b border-border pb-6">
-                <span className="grid h-12 w-12 place-items-center rounded-xl bg-accent/15 text-accent">
-                  <group.icon className="h-6 w-6" />
-                </span>
-                <h3 className="font-serif text-2xl font-semibold tracking-tight">
-                  {group.title}
-                </h3>
-              </div>
-              <div className="grid gap-5 pt-6 md:grid-cols-3">
-                {group.items.map((item) => (
-                  <div key={item.title} className="space-y-2">
-                    <div className="flex items-center gap-2">
-                      <item.icon className="h-4 w-4 text-primary" />
-                      <h4 className="font-semibold leading-tight">
-                        {item.title}
-                      </h4>
+              <AccordionTrigger className="py-6 hover:no-underline">
+                <div className="flex items-center gap-4 text-left">
+                  <span className="grid h-12 w-12 shrink-0 place-items-center rounded-xl bg-accent/15 text-accent">
+                    <group.icon className="h-6 w-6" />
+                  </span>
+                  <h3 className="font-serif text-xl font-semibold tracking-tight sm:text-2xl">
+                    {group.title}
+                  </h3>
+                </div>
+              </AccordionTrigger>
+              <AccordionContent>
+                <div className="grid gap-6 pt-2 md:grid-cols-3">
+                  {group.items.map((item) => (
+                    <div key={item.title} className="space-y-2">
+                      <div className="flex items-center gap-2">
+                        <item.icon className="h-4 w-4 text-primary" />
+                        <h4 className="font-semibold leading-tight text-foreground">
+                          {item.title}
+                        </h4>
+                      </div>
+                      <p className="text-sm leading-relaxed text-muted-foreground">
+                        {item.text}
+                      </p>
                     </div>
-                    <p className="text-sm leading-relaxed text-muted-foreground">
-                      {item.text}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </div>
+                  ))}
+                </div>
+              </AccordionContent>
+            </AccordionItem>
           ))}
-        </div>
+        </Accordion>
       </Section>
 
       {/* CTA */}

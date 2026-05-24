@@ -9,12 +9,10 @@ import {
   Phone,
   Receipt,
   ShieldCheck,
-  Wrench,
   Users,
   Vote,
   Mail,
   Calculator,
-  Scale,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Section, Eyebrow } from "@/components/section";
@@ -81,17 +79,6 @@ const services = [
     description:
       "Abwicklung mit Gebäude- und Haftpflichtversicherung im Schadensfall.",
   },
-  {
-    icon: Wrench,
-    title: "Wartung & Pflege",
-    description:
-      "Koordination von Wartungs- und Pflegearbeiten an gemeinschaftlichen Anlagen.",
-  },
-  {
-    icon: Scale,
-    title: "Hausordnung",
-    description: "Festlegung und Pflege einer fairen, klar formulierten Hausordnung.",
-  },
 ];
 
 export default function WegVerwaltungPage() {
@@ -104,12 +91,11 @@ export default function WegVerwaltungPage() {
         ]}
         eyebrow="Für Eigentümergemeinschaften"
         title={<>WEG-Verwaltung in Dorsten.</>}
-        description="Von der Jahresabrechnung über die Eigentümerversammlung bis zur Schadensregulierung."
       />
 
       <Section>
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
-          <div className="lg:col-span-5">
+          <div className="hidden lg:col-span-5 lg:block">
             <div className="sticky top-28">
               <div className="relative aspect-[4/5] overflow-hidden rounded-3xl shadow-lg ring-1 ring-border">
                 <Image
@@ -155,24 +141,28 @@ export default function WegVerwaltungPage() {
 
       {/* CTA */}
       <Section className="py-16">
-        <div className="rounded-3xl border border-border bg-card p-8 shadow-sm sm:p-12">
-          <div className="grid items-center gap-8 lg:grid-cols-2">
+        <div className="relative overflow-hidden rounded-3xl bg-primary p-8 text-primary-foreground shadow-sm sm:p-12 lg:p-16">
+          <div className="absolute -right-20 -top-20 h-72 w-72 rounded-full bg-accent/30 blur-3xl" />
+          <div className="absolute -bottom-20 -left-10 h-64 w-64 rounded-full bg-accent/20 blur-3xl" />
+          <div className="relative grid items-center gap-8 lg:grid-cols-2">
             <div>
-              <h2 className="font-serif text-2xl font-semibold tracking-tight sm:text-3xl">
-                Lassen Sie uns über Ihre Gemeinschaft sprechen.
+              <Eyebrow className="text-accent">Wir sind für Sie da</Eyebrow>
+              <h2 className="mt-4 font-serif text-2xl font-semibold tracking-tight sm:text-3xl lg:text-4xl">
+                In guten Händen.
               </h2>
-              <p className="mt-3 text-muted-foreground">
-                Ob neue Verwaltung gesucht oder Wechsel geplant — wir beraten
-                Sie unverbindlich.
-              </p>
             </div>
             <div className="flex flex-col gap-3 sm:flex-row lg:justify-end">
-              <Button asChild size="lg" variant="accent">
+              <Button asChild size="lg" variant="accent" className="glow-accent-btn">
                 <Link href="/kontakt">
                   Kontakt aufnehmen <ArrowRight className="h-4 w-4" />
                 </Link>
               </Button>
-              <Button asChild size="lg" variant="outline">
+              <Button
+                asChild
+                size="lg"
+                variant="outline"
+                className="border-primary-foreground/30 bg-transparent text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground"
+              >
                 <a href={`tel:${siteConfig.phoneLink}`}>
                   <Phone className="h-4 w-4" />
                   {siteConfig.phone}

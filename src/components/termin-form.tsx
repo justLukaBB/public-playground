@@ -16,8 +16,8 @@ const topics = [
   { value: "Sonstiges", label: "Sonstiges" },
 ];
 
-// Bürozeiten: Mo.–Fr. 09:00 – 12:00 Uhr · Slots alle 30 Minuten
-function buildTimeSlots(startMin = 9 * 60, endMin = 12 * 60, stepMin = 30) {
+// Bürozeiten: Mo.–Fr. 09:00 – 16:00 Uhr · Slots alle 30 Minuten
+function buildTimeSlots(startMin = 9 * 60, endMin = 16 * 60, stepMin = 30) {
   const slots: string[] = [];
   for (let m = startMin; m <= endMin; m += stepMin) {
     const h = Math.floor(m / 60).toString().padStart(2, "0");
@@ -221,7 +221,7 @@ export function TerminForm() {
       </div>
 
       <p className="text-xs text-muted-foreground">
-        Pflichtfelder sind mit * markiert. Unsere Bürozeiten: Mo.–Fr. 9:00–12:00
+        Pflichtfelder sind mit * markiert. Unsere Bürozeiten: Mo.–Fr. 9:00–16:00
         Uhr. Wunschtermine außerhalb dieser Zeiten gerne telefonisch anfragen —
         wir melden uns kurzfristig zurück.
       </p>
