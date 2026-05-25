@@ -145,7 +145,7 @@ export default function HomePage() {
               <Eyebrow>Hausverwaltung Dorsten</Eyebrow>
             </HeroEntry>
             <HeroEntry>
-              <h1 className="text-[1.375rem] font-semibold leading-[1.15] tracking-tight text-foreground sm:text-4xl sm:leading-[1.05] lg:text-[2.625rem] lg:leading-[1.05]">
+              <h1 className="text-[1.4375rem] font-semibold leading-[1.15] tracking-tight text-foreground sm:text-4xl sm:leading-[1.05] lg:text-[2.625rem] lg:leading-[1.05]">
                 <WordReveal
                   as="span"
                   text="Herzlich Willkommen bei der"
