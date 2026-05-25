@@ -131,7 +131,7 @@ export function SiteHeader() {
                     <Link href="/termin">Termin anfragen</Link>
                   </Button>
                 </SheetClose>
-                <div className="flex items-center justify-between gap-6 text-sm">
+                <div className="flex items-center gap-5 text-sm">
                   <a
                     href={`tel:${siteConfig.phoneLink}`}
                     className="inline-flex shrink-0 items-center gap-2 font-medium text-foreground"
