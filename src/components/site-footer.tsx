@@ -33,7 +33,7 @@ export function SiteFooter() {
             ))}
           </FooterColumn>
 
-          <FooterColumn title="Kontakt" className="col-span-2 lg:col-span-2">
+          <FooterColumn title="Kontakt">
             <li className="text-[12px] leading-relaxed text-muted-foreground">
               {siteConfig.address.street}, {siteConfig.address.zip}{" "}
               {siteConfig.address.city}
@@ -49,7 +49,7 @@ export function SiteFooter() {
             <li>
               <a
                 href={`mailto:${siteConfig.email}`}
-                className="text-[12px] text-muted-foreground transition-colors hover:text-foreground"
+                className="break-words text-[12px] text-muted-foreground transition-colors hover:text-foreground"
               >
                 {siteConfig.email}
               </a>
