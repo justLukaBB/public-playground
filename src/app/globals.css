@@ -248,3 +248,21 @@
     transform: none;
   }
 }
+
+/* Hero-Überschrift: fließende Größe, an die Viewport-Breite gekoppelt.
+   So bleibt "Herzlich Willkommen bei der" immer in einer Zeile ("der"
+   steht oben) und die Schrift wächst auf breiteren Handys mit:
+   ~22px @360px  ->  ~25.5px @430px  ->  bis 28px. */
+.hero-headline {
+  font-size: clamp(1.375rem, 6.36vw - 1.85px, 1.75rem);
+}
+@media (min-width: 640px) {
+  .hero-headline {
+    font-size: 2.25rem; /* entspricht sm:text-4xl */
+  }
+}
+@media (min-width: 1024px) {
+  .hero-headline {
+    font-size: 2.625rem; /* entspricht lg */
+  }
+}
