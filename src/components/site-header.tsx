@@ -131,15 +131,15 @@ export function SiteHeader() {
                     <Link href="/termin">Termin anfragen</Link>
                   </Button>
                 </SheetClose>
-                <div className="flex items-center justify-between text-sm">
+                <div className="flex items-center justify-between gap-6 text-sm">
                   <a
                     href={`tel:${siteConfig.phoneLink}`}
-                    className="inline-flex items-center gap-2 font-medium text-foreground"
+                    className="inline-flex shrink-0 items-center gap-2 font-medium text-foreground"
                   >
                     <Phone className="h-4 w-4 text-accent" />
                     {siteConfig.phone}
                   </a>
-                  <span className="text-muted-foreground">
+                  <span className="whitespace-nowrap text-xs text-muted-foreground">
                     {siteConfig.hours}
                   </span>
                 </div>
