@@ -503,20 +503,20 @@ export default function HomePage() {
               </h2>
             </div>
             <div className="flex flex-col gap-3 sm:flex-row lg:justify-end">
-              <Magnetic>
-                <Button asChild variant="accent" size="lg" className="glow-accent-btn">
+              <Magnetic className="w-full sm:w-auto">
+                <Button asChild variant="accent" size="lg" className="w-full glow-accent-btn sm:w-auto">
                   <Link href="/termin">
                     Termin vereinbaren
                     <ArrowRight className="h-4 w-4" />
                   </Link>
                 </Button>
               </Magnetic>
-              <Magnetic strength={0.22}>
+              <Magnetic strength={0.22} className="w-full sm:w-auto">
                 <Button
                   asChild
                   size="lg"
                   variant="outline"
-                  className="border-primary-foreground/30 bg-transparent text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground"
+                  className="w-full border-primary-foreground/30 bg-transparent text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground sm:w-auto"
                 >
                   <a href={`tel:${siteConfig.phoneLink}`}>
                     <Phone className="h-4 w-4" />

@@ -61,7 +61,7 @@ export function Magnetic({
       className={cn("relative inline-block", className)}
     >
       <motion.span
-        className="inline-block will-change-transform"
+        className={cn("inline-block will-change-transform", className)}
         style={reduce ? undefined : { x: sx, y: sy }}
       >
         {children}
