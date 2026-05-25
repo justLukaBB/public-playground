@@ -9,8 +9,8 @@ export function SiteFooter() {
   return (
     <footer className="mt-24 border-t border-border/70 bg-secondary">
       <div className="mx-auto max-w-6xl px-4 pt-12 pb-8 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-4 gap-x-4 gap-y-10 sm:gap-x-6 lg:grid-cols-12 lg:gap-x-8">
-          <div className="col-span-4 lg:col-span-4 lg:pr-8">
+        <div className="grid grid-cols-2 gap-x-6 gap-y-10 sm:gap-x-8 lg:grid-cols-12 lg:gap-x-8">
+          <div className="col-span-2 lg:col-span-4 lg:pr-8">
             <Logo />
             <p className="mt-3 max-w-xs text-[13px] leading-relaxed text-muted-foreground">
               Professionelle Immobilienverwaltung in Dorsten und Umgebung.
@@ -33,16 +33,15 @@ export function SiteFooter() {
             ))}
           </FooterColumn>
 
-          <FooterColumn title="Kontakt">
+          <FooterColumn title="Kontakt" className="col-span-2 lg:col-span-2">
             <li className="text-[12px] leading-relaxed text-muted-foreground">
-              {siteConfig.address.street}
-              <br />
-              {siteConfig.address.zip} {siteConfig.address.city}
+              {siteConfig.address.street}, {siteConfig.address.zip}{" "}
+              {siteConfig.address.city}
             </li>
             <li>
               <a
                 href={`tel:${siteConfig.phoneLink}`}
-                className="break-words text-[12px] text-muted-foreground transition-colors hover:text-foreground"
+                className="text-[12px] text-muted-foreground transition-colors hover:text-foreground"
               >
                 {siteConfig.phone}
               </a>
@@ -50,7 +49,7 @@ export function SiteFooter() {
             <li>
               <a
                 href={`mailto:${siteConfig.email}`}
-                className="break-words text-[12px] text-muted-foreground transition-colors hover:text-foreground"
+                className="text-[12px] text-muted-foreground transition-colors hover:text-foreground"
               >
                 {siteConfig.email}
               </a>
@@ -77,12 +76,14 @@ export function SiteFooter() {
 function FooterColumn({
   title,
   children,
+  className,
 }: {
   title: string;
   children: React.ReactNode;
+  className?: string;
 }) {
   return (
-    <div className="lg:col-span-2">
+    <div className={className ?? "lg:col-span-2"}>
       <h3 className="text-[11px] font-semibold uppercase tracking-[0.08em] text-foreground/80">
         {title}
       </h3>
