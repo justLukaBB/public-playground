@@ -499,7 +499,7 @@ export default function HomePage() {
             <div>
               <Eyebrow className="text-accent">Lassen Sie uns sprechen</Eyebrow>
               <h2 className="mt-4 font-serif text-2xl font-semibold tracking-tight sm:text-3xl lg:text-4xl">
-                Ihre Immobilie in den besten Händen.
+                Unverbindlich Kontakt aufnehmen
               </h2>
             </div>
             <div className="flex flex-col gap-3 sm:flex-row lg:justify-end">

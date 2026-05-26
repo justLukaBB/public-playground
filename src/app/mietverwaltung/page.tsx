@@ -278,11 +278,8 @@ export default function MietverwaltungPage() {
             <div>
               <Eyebrow className="text-accent">Bereit, loszulegen?</Eyebrow>
               <h2 className="mt-4 font-serif text-2xl font-semibold tracking-tight sm:text-3xl lg:text-4xl">
-                Übergeben Sie Ihre Mietobjekte in gute Hände.
+                Unverbindlich Kontakt aufnehmen
               </h2>
-              <p className="mt-4 max-w-lg leading-relaxed text-primary-foreground/80">
-                Ein kurzes Gespräch reicht — unverbindlich und kostenfrei.
-              </p>
             </div>
             <div className="flex flex-col gap-3 sm:flex-row lg:justify-end">
               <Button asChild variant="accent" size="lg">
