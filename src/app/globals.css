@@ -294,6 +294,29 @@
   animation: marquee 45s linear infinite;
   will-change: transform;
 }
+/* Hand gezeichneter Unterstrich, der sich beim Laden selbst zeichnet.
+   Reine CSS-Animation -> läuft auf allen Browsern/Geräten (kein JS nötig). */
+@keyframes underline-draw {
+  from {
+    stroke-dashoffset: 1;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+.underline-draw {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: underline-draw 1.1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation-delay: var(--underline-delay, 0.4s);
+}
+@media (prefers-reduced-motion: reduce) {
+  .underline-draw {
+    animation: none;
+    stroke-dashoffset: 0;
+  }
+}
+
 /* Weiches Aus-/Einblenden an den linken/rechten Rändern der Laufschleife. */
 .marquee-mask {
   -webkit-mask-image: linear-gradient(
