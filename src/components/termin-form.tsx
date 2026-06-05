@@ -70,7 +70,7 @@ export function TerminForm() {
     const data = Object.fromEntries(new FormData(form));
 
     try {
-      const res = await fetch("/api/termine", {
+      const res = await fetch("/termin.php", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),

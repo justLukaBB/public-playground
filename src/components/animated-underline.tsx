@@ -37,7 +37,11 @@ export function AnimatedUnderline({
         <motion.path
           d="M 4 8 Q 90 2 150 6 T 296 5"
           fill="none"
-          stroke={color ?? "var(--accent)"}
+          // currentColor + CSS-Farbe: var() wird in SVG-Attributen nur von
+          // Safari aufgelöst, in einer CSS-Eigenschaft aber von allen Browsern.
+          stroke="currentColor"
+          className="text-accent"
+          style={color ? { color } : undefined}
           strokeWidth={6}
           strokeLinecap="round"
           initial={reduce ? false : { pathLength: 0, opacity: 0.6 }}

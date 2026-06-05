@@ -5,7 +5,6 @@ import { Star } from "lucide-react";
 import { useState } from "react";
 
 type Testimonial = {
-  name: string;
   role: string;
   quote: string;
 };
@@ -32,8 +31,7 @@ function CardBody({ t }: { t: Testimonial }) {
         „{t.quote}"
       </blockquote>
       <figcaption className="mt-6 border-t border-border pt-4 text-sm">
-        <span className="block font-semibold text-foreground">{t.name}</span>
-        <span className="block text-muted-foreground">{t.role}</span>
+        <span className="block font-medium text-muted-foreground">{t.role}</span>
       </figcaption>
     </>
   );
@@ -56,7 +54,7 @@ export function TestimonialStack({ items }: TestimonialStackProps) {
             <div className="space-y-6">
               {items.map((t, i) => (
                 <motion.figure
-                  key={t.name}
+                  key={t.quote}
                   initial={{ opacity: 0, y: 24 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{

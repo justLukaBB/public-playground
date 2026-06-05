@@ -13,14 +13,13 @@ import {
   MessageSquareQuote,
   Phone,
   PlayCircle,
-  Star,
   Users,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Section, Eyebrow } from "@/components/section";
 import { Reveal, Stagger, StaggerItem } from "@/components/reveal";
-import { TestimonialStack } from "@/components/testimonial-stack";
+import { TestimonialMarquee } from "@/components/testimonial-marquee";
 import { AnimatedNumber } from "@/components/animated-number";
 import { KenBurns } from "@/components/ken-burns";
 import { HeroEntry, HeroEntryGroup } from "@/components/hero-entry";
@@ -101,21 +100,32 @@ const process = [
 const testimonials = [
   {
     quote:
-      "Seit Jahren verwaltet Hürland unsere WEG – professionell, zuverlässig und immer transparent.",
-    name: "Klaus M.",
-    role: "WEG-Eigentümer, Dorsten",
+      "Seit vielen Jahren sind wir mit der WEG-Verwaltung unserer Eigentumswohnungen durch die Hürland-Scuric Immobilien GmbH sehr zufrieden. Zuverlässig, professionell und immer ansprechbar – so wünscht man sich eine Hausverwaltung!",
+    role: "Google-Rezension",
   },
   {
     quote:
-      "Seit Hürland die Verwaltung übernommen hat, muss ich mich um gar nichts mehr kümmern.",
-    name: "Sabine K.",
-    role: "Vermieterin, Dorsten-Marl",
+      "Unsere kleine WEG hat vor 3 Jahren eine Hausverwaltung gesucht und Frau Hürland-Scuric gefunden. Der Umgang ist freundlich, die Abrechnungen sind alle ok.",
+    role: "Google-Rezension",
   },
   {
     quote:
-      "Frau Hürland ist immer persönlich erreichbar. Kein Callcenter, kein Warten.",
-    name: "Thomas W.",
-    role: "Eigentümer, Gladbeck",
+      "Frau Hürland ist immer ansprechbar, gut zu erreichen und sehr zuverlässig!",
+    role: "Google-Rezension",
+  },
+  {
+    quote:
+      "Ich habe sehr gute Erfahrungen gemacht: kompetente Beratung, transparente Kommunikation und eine zuverlässige Betreuung. Sehr empfehlenswert.",
+    role: "Google-Rezension",
+  },
+  {
+    quote:
+      "Sehr zufrieden! Die Zusammenarbeit mit der Hausverwaltung Hürland läuft reibungslos.",
+    role: "Google-Rezension",
+  },
+  {
+    quote: "Unkompliziert und kompetent. Einfach fantastisch.",
+    role: "Google-Rezension",
   },
 ];
 
@@ -345,7 +355,7 @@ export default function HomePage() {
       </div>
 
       {/* PROCESS — So arbeiten wir */}
-      <Section className="bg-secondary/40">
+      <Section className="section-soft">
         <div className="mx-auto max-w-2xl text-center">
           <Eyebrow className="justify-center">So arbeiten wir</Eyebrow>
           <h2 className="mt-4 font-serif text-2xl font-semibold tracking-tight sm:text-3xl lg:text-4xl">
@@ -448,7 +458,7 @@ export default function HomePage() {
       </Section>
 
       {/* TESTIMONIALS */}
-      <Section className="bg-secondary/40">
+      <Section className="section-soft">
         <div className="mx-auto max-w-2xl text-center">
           <Eyebrow className="justify-center">Kundenstimmen</Eyebrow>
           <h2 className="mt-4 font-serif text-2xl font-semibold tracking-tight sm:text-3xl lg:text-4xl">
@@ -456,38 +466,9 @@ export default function HomePage() {
           </h2>
         </div>
 
-        <div className="mt-10 sm:mt-14 md:hidden">
-          <TestimonialStack items={testimonials} />
+        <div className="mt-10 sm:mt-14">
+          <TestimonialMarquee items={testimonials} />
         </div>
-
-        <Stagger className="mt-10 hidden gap-6 sm:mt-14 md:grid md:grid-cols-3">
-          {testimonials.map((t) => (
-            <StaggerItem
-              key={t.name}
-              as="figure"
-              className="flex h-full flex-col rounded-2xl border border-border bg-card p-7 shadow-sm"
-            >
-              <div className="flex items-center gap-1 text-amber-400">
-                {Array.from({ length: 5 }).map((_, i) => (
-                  <Star
-                    key={i}
-                    className="star-shimmer h-4 w-4 fill-current"
-                    style={{ animationDelay: `${i * 0.18}s` }}
-                  />
-                ))}
-              </div>
-              <blockquote className="mt-4 flex-1 font-serif text-lg leading-snug text-foreground">
-                „{t.quote}"
-              </blockquote>
-              <figcaption className="mt-6 border-t border-border pt-4 text-sm">
-                <span className="block font-semibold text-foreground">
-                  {t.name}
-                </span>
-                <span className="block text-muted-foreground">{t.role}</span>
-              </figcaption>
-            </StaggerItem>
-          ))}
-        </Stagger>
       </Section>
 
       {/* CTA */}

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://www.huerland-hausverwaltung.de/sitemap.xml

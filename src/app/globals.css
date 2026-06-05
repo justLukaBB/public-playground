@@ -266,3 +266,48 @@
     font-size: 2.625rem; /* entspricht lg */
   }
 }
+
+/* Weiche Verlaufs-Bänder: getönte Abschnitte laufen oben & unten sanft ins
+   Weiß (--background) aus, damit die Übergänge nicht hart/abgehackt wirken.
+   Gleiche Mint-Tönung wie das frühere bg-secondary/40. */
+.section-soft {
+  background-image: linear-gradient(
+    to bottom,
+    var(--background) 0%,
+    var(--secondary) 6rem,
+    var(--secondary) calc(100% - 6rem),
+    var(--background) 100%
+  );
+}
+
+/* Endlose Laufschleife der Kundenstimmen.
+   Die Liste ist verdoppelt -> -50 % verschiebt um genau eine Kopie -> nahtlos. */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+.animate-marquee {
+  animation: marquee 45s linear infinite;
+  will-change: transform;
+}
+/* Weiches Aus-/Einblenden an den linken/rechten Rändern der Laufschleife. */
+.marquee-mask {
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    #000 6%,
+    #000 94%,
+    transparent
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    #000 6%,
+    #000 94%,
+    transparent
+  );
+}
