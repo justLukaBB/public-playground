@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Clock, Mail, MapPin, Phone, Printer, Smartphone } from "lucide-react";
+import { Clock, Mail, MapPin, Phone, Printer } from "lucide-react";
 import { Section, Eyebrow } from "@/components/section";
 import { PageHero } from "@/components/page-hero";
 import { ContactForm } from "@/components/contact-form";
@@ -27,12 +27,6 @@ const contactItems = [
     label: "Telefon",
     value: siteConfig.phone,
     href: `tel:${siteConfig.phoneLink}`,
-  },
-  {
-    icon: Smartphone,
-    label: "Mobil",
-    value: siteConfig.mobile,
-    href: `tel:${siteConfig.mobileLink}`,
   },
   {
     icon: Printer,

@@ -49,14 +49,6 @@ export default function ImpressumPage() {
                 {siteConfig.phone}
               </a>
               <br />
-              Mobil:{" "}
-              <a
-                href={`tel:${siteConfig.mobileLink}`}
-                className="text-primary hover:text-accent"
-              >
-                {siteConfig.mobile}
-              </a>
-              <br />
               Fax: {siteConfig.fax}
               <br />
               E-Mail:{" "}
