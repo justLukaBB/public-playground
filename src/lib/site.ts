@@ -5,7 +5,7 @@ export const siteConfig = {
   headline: "Zuverlässige Hausverwaltung in Dorsten & Umgebung",
   city: "Dorsten",
   address: {
-    street: "Ostwall 40-42",
+    street: "Ostwall 42",
     zip: "46282",
     city: "Dorsten",
   },

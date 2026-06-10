@@ -233,7 +233,7 @@ export default function KontaktPage() {
             <div className="overflow-hidden rounded-3xl border border-border shadow-sm">
               <iframe
                 title="Karte – Standort Hürland"
-                src="https://maps.google.com/maps?q=Ostwall+40-42%2C+46282+Dorsten&z=16&output=embed"
+                src="https://maps.google.com/maps?q=Ostwall+42%2C+46282+Dorsten&z=16&output=embed"
                 className="aspect-[4/3] w-full"
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"

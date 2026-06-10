@@ -112,7 +112,7 @@ if ($thema !== "") { $bestBody .= "Thema:        " . $thema . "\n"; }
 $bestBody .= "\nWir prüfen Ihren Wunschtermin und melden uns kurzfristig bei Ihnen.\n\n";
 $bestBody .= "Mit freundlichen Grüßen\n";
 $bestBody .= "Hürland-Scuric Immobilien GmbH\n";
-$bestBody .= "Ostwall 40-42, 46282 Dorsten\n";
+$bestBody .= "Ostwall 42, 46282 Dorsten\n";
 $bestBody .= "Tel. 02362/9930550\n";
 
 @mail($email, $bestBetreff, $bestBody, $headers, "-f " . $ABSENDER);
