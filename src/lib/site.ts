@@ -11,7 +11,6 @@ export const siteConfig = {
   },
   phone: "02362/9930550",
   phoneLink: "+4923629930550",
-  fax: "02362/9930551",
   email: "info@huerland-hausverwaltung.de",
   hours: "Mo.–Fr. 9:00 – 16:00 Uhr",
   values: ["Kundennähe", "Kompetenz", "Flexibilität", "Transparenz"],

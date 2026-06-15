@@ -49,8 +49,6 @@ export default function ImpressumPage() {
                 {siteConfig.phone}
               </a>
               <br />
-              Fax: {siteConfig.fax}
-              <br />
               E-Mail:{" "}
               <a
                 href={`mailto:${siteConfig.email}`}
