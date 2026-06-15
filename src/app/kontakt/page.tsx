@@ -156,7 +156,7 @@ export default function KontaktPage() {
                 <div>
                   <Eyebrow>So erreichen Sie uns</Eyebrow>
                   <h3 className="mt-3 font-serif text-xl font-semibold">
-                    Direkter Draht zu uns
+                    Kontaktieren Sie uns
                   </h3>
                 </div>
                 <ul className="space-y-4">
